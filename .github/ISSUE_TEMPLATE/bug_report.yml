@@ -1,0 +1,33 @@
+name: Bug Report
+description: Report a bug
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: quest
+    attributes:
+      label: Which quest?
+      placeholder: "CryptoQuest / BashQuest / etc."
+  - type: input
+    id: level
+    attributes:
+      label: Level number (if applicable)
+      placeholder: "42"
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+    validations:
+      required: true

@@ -1,0 +1,24 @@
+name: Feature Request
+description: Suggest a new quest or challenge
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Request type
+      options:
+        - New quest
+        - New challenge levels
+        - Engine improvement
+        - UI/UX improvement
+        - Documentation
+        - Other
+    validations:
+      required: true
