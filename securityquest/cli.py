@@ -3,14 +3,13 @@
 from __future__ import annotations
 
 import importlib
-import sys
 import time
 
 try:
-    from rich.console import Console
-    from rich.text import Text
-    from rich.table import Table
     from rich import box
+    from rich.console import Console
+    from rich.table import Table
+    from rich.text import Text
     HAS_RICH = True
 except ImportError:
     HAS_RICH = False
