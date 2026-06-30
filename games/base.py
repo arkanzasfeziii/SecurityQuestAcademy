@@ -159,7 +159,7 @@ def eval_python_level(user_code: str, test_code: str) -> Tuple[bool, str, str]:
 def execute_bash(command: str, expected_output: Optional[str] = None) -> Tuple[bool, str]:
     script_path = None
     try:
-        with tempfile.NamedTemporaryFile(mode="w", suffix=".sh", delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".sh", delete=False, newline="\n") as f:
             f.write("#!/bin/bash\nset +e\n" + command + "\n")
             script_path = f.name
         os.chmod(script_path, 0o755)
