@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from games.base import run_game
 
 GAME_NAME     = "CryptoQuest"
@@ -1089,6 +1090,7 @@ def show_banner():
 
 def simulate_boot():
     import time
+
     from rich.console import Console
     console = Console()
     steps = [

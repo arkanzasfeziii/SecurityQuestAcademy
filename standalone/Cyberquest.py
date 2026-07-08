@@ -7,36 +7,34 @@ Author: arkanzasfeziii
 
 import json
 import os
+import random
 import sys
 import time
-import random
-from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from pathlib import Path
 
 # === Rich imports for beautiful CLI ===
 try:
-    from rich.console import Console
-    from rich.panel import Panel
-    from rich.progress import Progress, SpinnerColumn, TextColumn
-    from rich.table import Table
-    from rich.prompt import Prompt, Confirm
-    from rich.markdown import Markdown
-    from rich.syntax import Syntax
     from rich import box
+    from rich.console import Console
     from rich.layout import Layout
     from rich.live import Live
+    from rich.markdown import Markdown
+    from rich.panel import Panel
+    from rich.progress import Progress, SpinnerColumn, TextColumn
+    from rich.prompt import Confirm, Prompt
+    from rich.syntax import Syntax
+    from rich.table import Table
 except ImportError:
     print("Installing required dependencies...")
     os.system(f"{sys.executable} -m pip install rich --quiet")
+    from rich import box
     from rich.console import Console
     from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
-    from rich.table import Table
-    from rich.prompt import Prompt, Confirm
-    from rich.markdown import Markdown
+    from rich.prompt import Confirm, Prompt
     from rich.syntax import Syntax
-    from rich import box
+    from rich.table import Table
 
 console = Console()
 
@@ -323,7 +321,7 @@ LEVELS = [
         "points": 55,
         "category": "basics"
     },
-    
+
     # === INTERMEDIATE TIER (21-50): Security Concepts ===
     {
         "id": 21,
@@ -445,7 +443,7 @@ LEVELS = [
         "points": 110,
         "category": "security"
     },
-    
+
     # === ADVANCED TIER (31-60): Real Security Tasks ===
     {
         "id": 31,
@@ -687,7 +685,7 @@ LEVELS = [
         "points": 215,
         "category": "security"
     },
-    
+
     # === EXPERT TIER (51-75): Advanced Techniques ===
     {
         "id": 51,
@@ -989,7 +987,7 @@ LEVELS = [
         "points": 340,
         "category": "security"
     },
-    
+
     # === MASTER TIER (76-100): Professional Security Engineering ===
     {
         "id": 76,
@@ -1336,8 +1334,8 @@ class PlayerProgress:
         self.achievements = []
         self.start_date = datetime.now().isoformat()
         self.last_played = datetime.now().isoformat()
-    
-    def to_dict(self) -> Dict:
+
+    def to_dict(self) -> dict:
         return {
             "current_level": self.current_level,
             "completed_levels": self.completed_levels,
@@ -1346,9 +1344,9 @@ class PlayerProgress:
             "start_date": self.start_date,
             "last_played": self.last_played,
         }
-    
+
     @classmethod
-    def from_dict(cls, data: Dict):
+    def from_dict(cls, data: dict):
         progress = cls()
         progress.current_level = data.get("current_level", 1)
         progress.completed_levels = data.get("completed_levels", [])
@@ -1373,7 +1371,7 @@ def load_progress() -> PlayerProgress:
     """Load player progress from file."""
     if SAVE_FILE.exists():
         try:
-            with open(SAVE_FILE, 'r') as f:
+            with open(SAVE_FILE) as f:
                 data = json.load(f)
                 return PlayerProgress.from_dict(data)
         except Exception as e:
@@ -1405,7 +1403,7 @@ def show_banner():
     time.sleep(1)
 
 
-def get_rank(level: int) -> Tuple[str, str]:
+def get_rank(level: int) -> tuple[str, str]:
     """Get player rank based on current level."""
     for min_level, rank_name, description in reversed(RANKS):
         if level >= min_level:
@@ -1416,22 +1414,22 @@ def get_rank(level: int) -> Tuple[str, str]:
 def show_stats(progress: PlayerProgress):
     """Display player statistics."""
     rank_name, rank_desc = get_rank(progress.current_level)
-    
+
     table = Table(title="Your Stats", box=box.DOUBLE_EDGE, border_style=COLORS['primary'])
     table.add_column("Stat", style=COLORS['secondary'], no_wrap=True)
     table.add_column("Value", style=COLORS['hacker'])
-    
+
     table.add_row("Current Level", f"{progress.current_level}/100")
     table.add_row("Completed Levels", str(len(progress.completed_levels)))
     table.add_row("Total Points", str(progress.total_points))
     table.add_row("Current Rank", rank_name)
     table.add_row("Rank Description", rank_desc)
     table.add_row("Achievements", str(len(progress.achievements)))
-    
+
     console.print(table)
 
 
-def show_level_info(level_data: Dict):
+def show_level_info(level_data: dict):
     """Display information about a level."""
     panel = Panel(
         f"""[{COLORS['hacker']}]LEVEL {level_data['id']}: {level_data['title'].upper()}[/]
@@ -1461,7 +1459,7 @@ def simulate_hacking():
         "Accessing secure terminal...",
         "System ready!",
     ]
-    
+
     with Progress(
         SpinnerColumn(),
         TextColumn("[progress.description]{task.description}"),
@@ -1475,26 +1473,26 @@ def simulate_hacking():
 
 
 # === Core Game Logic ===
-def play_level(level_data: Dict, progress: PlayerProgress) -> bool:
+def play_level(level_data: dict, progress: PlayerProgress) -> bool:
     """
     Play a single level.
     Returns True if completed successfully.
     """
     show_level_info(level_data)
     console.print()
-    
+
     # Show hint option
     console.print(f"[{COLORS['info']}]💡 Type 'hint' for a hint, 'skip' to skip (no points), or write your code:[/]")
     console.print()
-    
+
     # Get user code
     code_lines = []
     console.print(f"[{COLORS['secondary']}]Enter your Python code (type 'done' on a new line when finished):[/]")
-    
+
     while True:
         try:
             line = Prompt.ask(f"[{COLORS['hacker']}]>>>")
-            
+
             if line.lower() == 'done':
                 break
             elif line.lower() == 'hint':
@@ -1511,59 +1509,59 @@ def play_level(level_data: Dict, progress: PlayerProgress) -> bool:
         except (KeyboardInterrupt, EOFError):
             console.print(f"\n[{COLORS['warning']}]Level interrupted.[/]")
             return False
-    
+
     user_code = "\n".join(code_lines)
-    
+
     if not user_code.strip():
         console.print(f"[{COLORS['error']}]❌ No code entered![/]")
         return False
-    
+
     # Show what they wrote
     console.print(f"\n[{COLORS['info']}]Your code:[/]")
     syntax = Syntax(user_code, "python", theme="monokai", line_numbers=True)
     console.print(syntax)
     console.print()
-    
+
     # Test the code
     console.print(f"[{COLORS['warning']}]Testing your code...[/]")
     time.sleep(1)
-    
+
     try:
         # Capture output
         import io
         from contextlib import redirect_stdout
-        
+
         user_output = io.StringIO()
         with redirect_stdout(user_output):
             exec(user_code, {})
         user_result = user_output.getvalue().strip()
-        
+
         expected_output = io.StringIO()
         with redirect_stdout(expected_output):
             exec(level_data['test_code'], {})
         expected_result = expected_output.getvalue().strip()
-        
+
         # Compare outputs
         if user_result == expected_result:
             console.print(f"[{COLORS['success']}]✅ CORRECT! Level completed![/]")
             console.print(f"[{COLORS['info']}]{level_data['explanation']}[/]")
             console.print(f"[{COLORS['success']}]+{level_data['points']} points![/]")
-            
+
             # Update progress
             if level_data['id'] not in progress.completed_levels:
                 progress.completed_levels.append(level_data['id'])
                 progress.total_points += level_data['points']
-            
+
             # Check for achievements
             check_achievements(progress)
-            
+
             return True
         else:
             console.print(f"[{COLORS['error']}]❌ Not quite right. Try again![/]")
             console.print(f"[{COLORS['info']}]Expected output:[/] {expected_result}")
             console.print(f"[{COLORS['info']}]Your output:[/] {user_result}")
             return False
-            
+
     except Exception as e:
         console.print(f"[{COLORS['error']}]❌ Error in your code: {e}[/]")
         console.print(f"[{COLORS['info']}]Check for syntax errors and try again![/]")
@@ -1580,7 +1578,7 @@ def check_achievements(progress: PlayerProgress):
         (75, "🎖️ Elite Hacker", "Completed 75 levels"),
         (100, "👑 Legendary Status", "Completed ALL levels!"),
     ]
-    
+
     for threshold, name, desc in achievements:
         if len(progress.completed_levels) >= threshold and name not in progress.achievements:
             progress.achievements.append(name)
@@ -1593,40 +1591,40 @@ def check_achievements(progress: PlayerProgress):
 def main_menu():
     """Display main menu and handle user choices."""
     progress = load_progress()
-    
+
     while True:
         console.clear()
         show_banner()
-        
+
         rank_name, _ = get_rank(progress.current_level)
         console.print(f"\n[{COLORS['hacker']}]Welcome back, {rank_name}![/]\n")
-        
+
         table = Table(box=box.ROUNDED, border_style=COLORS['secondary'])
         table.add_column("Option", style=COLORS['primary'], no_wrap=True)
         table.add_column("Description", style=COLORS['info'])
-        
+
         table.add_row("1", "Continue Journey")
         table.add_row("2", "View Stats")
         table.add_row("3", "Jump to Level")
         table.add_row("4", "View Achievements")
         table.add_row("5", "Reset Progress")
         table.add_row("6", "Exit")
-        
+
         console.print(table)
-        
+
         choice = Prompt.ask(f"\n[{COLORS['secondary']}]Choose an option", choices=["1", "2", "3", "4", "5", "6"])
-        
+
         if choice == "1":
             # Continue playing
             while progress.current_level <= 100:
                 console.clear()
                 level_data = LEVELS[progress.current_level - 1]
-                
+
                 if play_level(level_data, progress):
                     progress.current_level += 1
                     progress.last_played = datetime.now().isoformat()
                     save_progress(progress)
-                    
+
                     if progress.current_level <= 100:
                         if Confirm.ask(f"\n[{COLORS['success']}]Continue to next level?"):
                             continue
@@ -1643,12 +1641,12 @@ def main_menu():
                         continue
                     else:
                         break
-        
+
         elif choice == "2":
             console.clear()
             show_stats(progress)
             input("\nPress Enter to continue...")
-        
+
         elif choice == "3":
             max_level = max(progress.completed_levels) + 1 if progress.completed_levels else 1
             level_num = int(Prompt.ask(f"Jump to level (1-{min(max_level, 100)})"))
@@ -1658,7 +1656,7 @@ def main_menu():
             else:
                 console.print(f"[{COLORS['error']}]Invalid level number![/]")
                 time.sleep(2)
-        
+
         elif choice == "4":
             console.clear()
             if progress.achievements:
@@ -1670,14 +1668,14 @@ def main_menu():
             else:
                 console.print(f"[{COLORS['info']}]No achievements yet. Keep playing![/]")
             input("\nPress Enter to continue...")
-        
+
         elif choice == "5":
             if Confirm.ask(f"[{COLORS['error']}]Are you sure you want to reset ALL progress?"):
                 progress = PlayerProgress()
                 save_progress(progress)
                 console.print(f"[{COLORS['success']}]Progress reset![/]")
                 time.sleep(2)
-        
+
         elif choice == "6":
             console.print(f"\n[{COLORS['hacker']}]Thanks for playing CyberQuest! See you next time, hacker! 👋[/]")
             break

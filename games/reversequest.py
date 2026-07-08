@@ -1,4 +1,5 @@
 ﻿from pathlib import Path
+
 from games.base import run_game
 
 GAME_NAME     = "ReverseQuest"
@@ -1100,6 +1101,7 @@ def show_banner() -> None:
 
 def simulate_boot() -> None:
     import time
+
     from rich.console import Console
     console = Console()
     steps = [

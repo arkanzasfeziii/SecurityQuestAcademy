@@ -11,34 +11,32 @@ from __future__ import annotations
 import io
 import json
 import os
-import random
 import subprocess
 import sys
 import tempfile
 import time
+from collections.abc import Callable
 from contextlib import redirect_stdout
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Tuple
 
 try:
+    from rich import box
     from rich.console import Console
     from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
     from rich.prompt import Confirm, Prompt
     from rich.syntax import Syntax
     from rich.table import Table
-    from rich import box
 except ImportError:
     os.system(f"{sys.executable} -m pip install rich --quiet")
+    from rich import box
     from rich.console import Console
     from rich.panel import Panel
-    from rich.progress import Progress, SpinnerColumn, TextColumn
     from rich.prompt import Confirm, Prompt
     from rich.syntax import Syntax
     from rich.table import Table
-    from rich import box
 
 console = Console()
 
@@ -50,13 +48,13 @@ console = Console()
 @dataclass
 class PlayerProgress:
     current_level: int = 1
-    completed_levels: List[int] = field(default_factory=list)
+    completed_levels: list[int] = field(default_factory=list)
     total_points: int = 0
-    achievements: List[str] = field(default_factory=list)
+    achievements: list[str] = field(default_factory=list)
     start_date: str = field(default_factory=lambda: datetime.now().isoformat())
     last_played: str = field(default_factory=lambda: datetime.now().isoformat())
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return {
             "current_level": self.current_level,
             "completed_levels": self.completed_levels,
@@ -67,7 +65,7 @@ class PlayerProgress:
         }
 
     @classmethod
-    def from_dict(cls, data: Dict) -> "PlayerProgress":
+    def from_dict(cls, data: dict) -> PlayerProgress:
         return cls(
             current_level=data.get("current_level", 1),
             completed_levels=data.get("completed_levels", []),
@@ -89,7 +87,7 @@ def save_progress(progress: PlayerProgress, save_file: Path) -> None:
 def load_progress(save_file: Path) -> PlayerProgress:
     if save_file.exists():
         try:
-            with open(save_file, "r") as f:
+            with open(save_file) as f:
                 return PlayerProgress.from_dict(json.load(f))
         except Exception:
             pass
@@ -100,14 +98,14 @@ def load_progress(save_file: Path) -> PlayerProgress:
 # Ranks & stats
 # ---------------------------------------------------------------------------
 
-def get_rank(level: int, ranks: List[Tuple]) -> Tuple[str, str]:
+def get_rank(level: int, ranks: list[tuple]) -> tuple[str, str]:
     for min_level, rank_name, description in reversed(ranks):
         if level >= min_level:
             return rank_name, description
     return ranks[0][1], ranks[0][2]
 
 
-def show_stats(progress: PlayerProgress, ranks: List[Tuple], colors: Dict, title: str = "Your Stats") -> None:
+def show_stats(progress: PlayerProgress, ranks: list[tuple], colors: dict, title: str = "Your Stats") -> None:
     rank_name, rank_desc = get_rank(progress.current_level, ranks)
     t = Table(title=title, box=box.DOUBLE_EDGE, border_style=colors["primary"])
     t.add_column("Stat", style=colors["secondary"], no_wrap=True)
@@ -123,8 +121,8 @@ def show_stats(progress: PlayerProgress, ranks: List[Tuple], colors: Dict, title
 
 def check_achievements(
     progress: PlayerProgress,
-    colors: Dict,
-    thresholds: List[Tuple],
+    colors: dict,
+    thresholds: list[tuple],
 ) -> None:
     for threshold, name, desc in thresholds:
         if len(progress.completed_levels) >= threshold and name not in progress.achievements:
@@ -138,7 +136,7 @@ def check_achievements(
 # Execution engines
 # ---------------------------------------------------------------------------
 
-def _exec_python(code: str) -> Tuple[bool, str]:
+def _exec_python(code: str) -> tuple[bool, str]:
     buf = io.StringIO()
     try:
         with redirect_stdout(buf):
@@ -148,7 +146,7 @@ def _exec_python(code: str) -> Tuple[bool, str]:
         return False, f"ERROR: {e}"
 
 
-def eval_python_level(user_code: str, test_code: str) -> Tuple[bool, str, str]:
+def eval_python_level(user_code: str, test_code: str) -> tuple[bool, str, str]:
     ok, user_out = _exec_python(user_code)
     if not ok:
         return False, user_out, ""
@@ -156,7 +154,7 @@ def eval_python_level(user_code: str, test_code: str) -> Tuple[bool, str, str]:
     return user_out == expected_out, user_out, expected_out
 
 
-def execute_bash(command: str, expected_output: Optional[str] = None) -> Tuple[bool, str]:
+def execute_bash(command: str, expected_output: str | None = None) -> tuple[bool, str]:
     script_path = None
     try:
         with tempfile.NamedTemporaryFile(mode="w", suffix=".sh", delete=False, newline="\n") as f:
@@ -177,7 +175,7 @@ def execute_bash(command: str, expected_output: Optional[str] = None) -> Tuple[b
             os.unlink(script_path)
 
 
-def match_cisco_command(user_input: str, accepted: List[str]) -> bool:
+def match_cisco_command(user_input: str, accepted: list[str]) -> bool:
     normalized = " ".join(user_input.strip().lower().split())
     for a in accepted:
         if normalized == " ".join(a.strip().lower().split()):
@@ -189,7 +187,7 @@ def match_cisco_command(user_input: str, accepted: List[str]) -> bool:
 # Level displayer
 # ---------------------------------------------------------------------------
 
-def show_level_info(level_data: Dict, colors: Dict) -> None:
+def show_level_info(level_data: dict, colors: dict) -> None:
     color_h = colors.get("hacker", colors["primary"])
     console.print(Panel(
         f"[{color_h}]LEVEL {level_data['id']}: {level_data['title'].upper()}[/]\n\n"
@@ -206,10 +204,10 @@ def show_level_info(level_data: Dict, colors: Dict) -> None:
 # Play-level implementations
 # ---------------------------------------------------------------------------
 
-def play_python_level(level_data: Dict, progress: PlayerProgress, colors: Dict) -> bool:
+def play_python_level(level_data: dict, progress: PlayerProgress, colors: dict) -> bool:
     show_level_info(level_data, colors)
     console.print(f"\n[{colors['info']}]Type your Python code line by line. Type [bold]done[/] to submit, [bold]hint[/] for help, [bold]skip[/] to skip.[/]\n")
-    lines: List[str] = []
+    lines: list[str] = []
     while True:
         try:
             line = Prompt.ask(f"[{colors.get('hacker', colors['primary'])}]>>>")
@@ -256,7 +254,7 @@ def play_python_level(level_data: Dict, progress: PlayerProgress, colors: Dict) 
         return False
 
 
-def play_cisco_level(level_data: Dict, progress: PlayerProgress, colors: Dict) -> bool:
+def play_cisco_level(level_data: dict, progress: PlayerProgress, colors: dict) -> bool:
     show_level_info(level_data, colors)
     console.print(f"\n[{colors['info']}]Type the Cisco IOS command. [bold]hint[/] for help, [bold]skip[/] to skip.[/]\n")
     while True:
@@ -286,7 +284,7 @@ def play_cisco_level(level_data: Dict, progress: PlayerProgress, colors: Dict) -
         return False
 
 
-def play_bash_level(level_data: Dict, progress: PlayerProgress, colors: Dict) -> bool:
+def play_bash_level(level_data: dict, progress: PlayerProgress, colors: dict) -> bool:
     show_level_info(level_data, colors)
     console.print(f"\n[{colors['info']}]Enter your bash command. [bold]hint[/] for help, [bold]skip[/] to skip.[/]\n")
     while True:
@@ -323,7 +321,7 @@ def play_bash_level(level_data: Dict, progress: PlayerProgress, colors: Dict) ->
         return False
 
 
-def _level_pass(level_data: Dict, progress: PlayerProgress, colors: Dict) -> None:
+def _level_pass(level_data: dict, progress: PlayerProgress, colors: dict) -> None:
     console.print(f"\n[{colors['success']}]✅ Correct! Level complete![/]")
     console.print(f"[{colors['info']}]{level_data['explanation']}[/]")
     console.print(f"[{colors['success']}]+{level_data['points']} points![/]")
@@ -344,15 +342,15 @@ ENGINE_MAP = {
 
 
 def run_game(
-    levels: List[Dict],
-    ranks: List[Tuple],
-    colors: Dict,
+    levels: list[dict],
+    ranks: list[tuple],
+    colors: dict,
     save_file: Path,
     game_name: str,
     show_banner_fn: Callable,
     simulate_boot_fn: Callable,
     engine: str,
-    achievement_thresholds: List[Tuple],
+    achievement_thresholds: list[tuple],
 ) -> None:
     play_level_fn = ENGINE_MAP[engine]
     progress = load_progress(save_file)

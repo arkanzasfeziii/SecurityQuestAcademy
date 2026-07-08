@@ -7,20 +7,22 @@ Author: arkanzasfeziii
 """
 
 from __future__ import annotations
-import os, sys, time, random
+
+import os
+import random
+import sys
+import time
 from pathlib import Path
 
 try:
+    from rich import box
     from rich.console import Console
     from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
-    from rich import box
 except ImportError:
     os.system(f"{sys.executable} -m pip install rich --quiet")
     from rich.console import Console
-    from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
-    from rich import box
 
 console = Console()
 

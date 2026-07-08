@@ -7,37 +7,34 @@ Author: arkanzasfeziii
 
 import json
 import os
-import sys
-import time
+import platform
 import random
 import subprocess
-import tempfile
-import platform
-from pathlib import Path
+import sys
+import time
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from pathlib import Path
 
 # === Rich imports for beautiful CLI ===
 try:
+    from rich import box
     from rich.console import Console
+    from rich.markdown import Markdown
     from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
-    from rich.table import Table
-    from rich.prompt import Prompt, Confirm
-    from rich.markdown import Markdown
+    from rich.prompt import Confirm, Prompt
     from rich.syntax import Syntax
-    from rich import box
+    from rich.table import Table
 except ImportError:
     print("Installing required dependencies...")
     os.system(f"{sys.executable} -m pip install rich --quiet")
+    from rich import box
     from rich.console import Console
     from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
-    from rich.table import Table
-    from rich.prompt import Prompt, Confirm
-    from rich.markdown import Markdown
+    from rich.prompt import Confirm, Prompt
     from rich.syntax import Syntax
-    from rich import box
+    from rich.table import Table
 
 console = Console()
 
@@ -362,7 +359,7 @@ LEVELS = [
         "points": 55,
         "category": "basics"
     },
-    
+
     # === INTERMEDIATE TIER (21-50): Batch & PowerShell Intro ===
     {
         "id": 21,
@@ -774,7 +771,7 @@ LEVELS = [
         "points": 215,
         "category": "powershell"
     },
-    
+
     # === ADVANCED TIER (51-75): Advanced PowerShell & Administration ===
     {
         "id": 51,
@@ -1109,7 +1106,7 @@ LEVELS = [
         "points": 340,
         "category": "advanced"
     },
-    
+
     # === EXPERT TIER (76-100): Professional Automation ===
     {
         "id": 76,
@@ -1471,8 +1468,8 @@ class PlayerProgress:
         self.achievements = []
         self.start_date = datetime.now().isoformat()
         self.last_played = datetime.now().isoformat()
-    
-    def to_dict(self) -> Dict:
+
+    def to_dict(self) -> dict:
         return {
             "current_level": self.current_level,
             "completed_levels": self.completed_levels,
@@ -1481,9 +1478,9 @@ class PlayerProgress:
             "start_date": self.start_date,
             "last_played": self.last_played,
         }
-    
+
     @classmethod
-    def from_dict(cls, data: Dict):
+    def from_dict(cls, data: dict):
         progress = cls()
         progress.current_level = data.get("current_level", 1)
         progress.completed_levels = data.get("completed_levels", [])
@@ -1508,7 +1505,7 @@ def load_progress() -> PlayerProgress:
     """Load player progress from file."""
     if SAVE_FILE.exists():
         try:
-            with open(SAVE_FILE, 'r') as f:
+            with open(SAVE_FILE) as f:
                 data = json.load(f)
                 return PlayerProgress.from_dict(data)
         except Exception as e:
@@ -1540,7 +1537,7 @@ def show_banner():
     time.sleep(1)
 
 
-def get_rank(level: int) -> Tuple[str, str]:
+def get_rank(level: int) -> tuple[str, str]:
     """Get player rank based on current level."""
     for min_level, rank_name, description in reversed(RANKS):
         if level >= min_level:
@@ -1551,22 +1548,22 @@ def get_rank(level: int) -> Tuple[str, str]:
 def show_stats(progress: PlayerProgress):
     """Display player statistics."""
     rank_name, rank_desc = get_rank(progress.current_level)
-    
+
     table = Table(title="Your Stats", box=box.DOUBLE_EDGE, border_style=COLORS['primary'])
     table.add_column("Stat", style=COLORS['secondary'], no_wrap=True)
     table.add_column("Value", style=COLORS['windows'])
-    
+
     table.add_row("Current Level", f"{progress.current_level}/100")
     table.add_row("Completed Levels", str(len(progress.completed_levels)))
     table.add_row("Total Points", str(progress.total_points))
     table.add_row("Current Rank", rank_name)
     table.add_row("Rank Description", rank_desc)
     table.add_row("Achievements", str(len(progress.achievements)))
-    
+
     console.print(table)
 
 
-def show_level_info(level_data: Dict):
+def show_level_info(level_data: dict):
     """Display information about a level."""
     shell_name = "PowerShell" if level_data['shell'] == 'powershell' else "CMD"
     panel = Panel(
@@ -1597,7 +1594,7 @@ def simulate_windows_boot():
         "Mounting system drives...",
         "System ready!",
     ]
-    
+
     with Progress(
         SpinnerColumn(),
         TextColumn("[progress.description]{task.description}"),
@@ -1611,7 +1608,7 @@ def simulate_windows_boot():
 
 
 # === Core Game Logic ===
-def execute_windows_command(command: str, shell: str, expected_output: Optional[str] = None) -> Tuple[bool, str]:
+def execute_windows_command(command: str, shell: str, expected_output: str | None = None) -> tuple[bool, str]:
     """
     Execute a Windows command and return success status and output.
     """
@@ -1634,9 +1631,9 @@ def execute_windows_command(command: str, shell: str, expected_output: Optional[
                 timeout=10,
                 shell=False
             )
-        
+
         output = result.stdout.strip()
-        
+
         # If we have expected output, check it
         if expected_output is not None:
             expected_normalized = expected_output.strip()
@@ -1646,7 +1643,7 @@ def execute_windows_command(command: str, shell: str, expected_output: Optional[
         else:
             # Just check if command executed without error
             return (result.returncode == 0, output)
-            
+
     except subprocess.TimeoutExpired:
         return (False, "Command timed out (>10 seconds)")
     except FileNotFoundError:
@@ -1657,24 +1654,24 @@ def execute_windows_command(command: str, shell: str, expected_output: Optional[
         return (False, f"Error: {str(e)}")
 
 
-def play_level(level_data: Dict, progress: PlayerProgress) -> bool:
+def play_level(level_data: dict, progress: PlayerProgress) -> bool:
     """
     Play a single level.
     Returns True if completed successfully.
     """
     show_level_info(level_data)
     console.print()
-    
+
     shell_prompt = "PS>" if level_data['shell'] == 'powershell' else "C:\\>"
-    
+
     # Show hint option
     console.print(f"[{COLORS['info']}]💡 Type 'hint' for a hint, 'skip' to skip (no points), or enter your command:[/]")
     console.print()
-    
+
     while True:
         try:
             user_input = Prompt.ask(f"[{COLORS['windows']}]{shell_prompt}")
-            
+
             if user_input.lower() == 'hint':
                 console.print(f"[{COLORS['warning']}]💡 Hint: {level_data['hint']}[/]")
                 continue
@@ -1687,39 +1684,39 @@ def play_level(level_data: Dict, progress: PlayerProgress) -> bool:
             elif not user_input.strip():
                 console.print(f"[{COLORS['error']}]Please enter a command![/]")
                 continue
-            
+
             break
         except (KeyboardInterrupt, EOFError):
             console.print(f"\n[{COLORS['warning']}]Level interrupted.[/]")
             return False
-    
+
     # Show what they entered
     console.print(f"\n[{COLORS['info']}]Your command:[/]")
     syntax = Syntax(user_input, "powershell" if level_data['shell'] == 'powershell' else "batch", theme="monokai", line_numbers=False)
     console.print(syntax)
     console.print()
-    
+
     # Execute the command
     console.print(f"[{COLORS['warning']}]Executing command...[/]")
     time.sleep(0.5)
-    
+
     success, output = execute_windows_command(user_input, level_data['shell'], level_data.get('expected_output'))
-    
+
     if success:
         console.print(f"[{COLORS['success']}]✅ CORRECT! Level completed![/]")
         if output and len(output) < 500:
             console.print(f"[{COLORS['info']}]Output:[/] {output[:200]}...")
         console.print(f"[{COLORS['info']}]{level_data['explanation']}[/]")
         console.print(f"[{COLORS['success']}]+{level_data['points']} points![/]")
-        
+
         # Update progress
         if level_data['id'] not in progress.completed_levels:
             progress.completed_levels.append(level_data['id'])
             progress.total_points += level_data['points']
-        
+
         # Check for achievements
         check_achievements(progress)
-        
+
         return True
     else:
         console.print(f"[{COLORS['error']}]❌ Not quite right. Try again![/]")
@@ -1727,7 +1724,7 @@ def play_level(level_data: Dict, progress: PlayerProgress) -> bool:
             console.print(f"[{COLORS['info']}]Output/Error:[/] {output[:200]}")
         if level_data.get('expected_output'):
             console.print(f"[{COLORS['info']}]Expected:[/] {level_data['expected_output']}")
-        
+
         if Confirm.ask(f"[{COLORS['warning']}]Try again?"):
             return play_level(level_data, progress)
         return False
@@ -1743,7 +1740,7 @@ def check_achievements(progress: PlayerProgress):
         (75, "👑 Windows Wizard", "Completed 75 levels"),
         (100, "⭐ Windows Grandmaster", "Completed ALL levels!"),
     ]
-    
+
     for threshold, name, desc in achievements:
         if len(progress.completed_levels) >= threshold and name not in progress.achievements:
             progress.achievements.append(name)
@@ -1756,40 +1753,40 @@ def check_achievements(progress: PlayerProgress):
 def main_menu():
     """Display main menu and handle user choices."""
     progress = load_progress()
-    
+
     while True:
         console.clear()
         show_banner()
-        
+
         rank_name, _ = get_rank(progress.current_level)
         console.print(f"\n[{COLORS['windows']}]Welcome back, {rank_name}![/]\n")
-        
+
         table = Table(box=box.ROUNDED, border_style=COLORS['secondary'])
         table.add_column("Option", style=COLORS['primary'], no_wrap=True)
         table.add_column("Description", style=COLORS['info'])
-        
+
         table.add_row("1", "Continue Journey")
         table.add_row("2", "View Stats")
         table.add_row("3", "Jump to Level")
         table.add_row("4", "View Achievements")
         table.add_row("5", "Reset Progress")
         table.add_row("6", "Exit")
-        
+
         console.print(table)
-        
+
         choice = Prompt.ask(f"\n[{COLORS['secondary']}]Choose an option", choices=["1", "2", "3", "4", "5", "6"])
-        
+
         if choice == "1":
             # Continue playing
             while progress.current_level <= 100:
                 console.clear()
                 level_data = LEVELS[progress.current_level - 1]
-                
+
                 if play_level(level_data, progress):
                     progress.current_level += 1
                     progress.last_played = datetime.now().isoformat()
                     save_progress(progress)
-                    
+
                     if progress.current_level <= 100:
                         if Confirm.ask(f"\n[{COLORS['success']}]Continue to next level?"):
                             continue
@@ -1803,12 +1800,12 @@ def main_menu():
                         break
                 else:
                     break
-        
+
         elif choice == "2":
             console.clear()
             show_stats(progress)
             input("\nPress Enter to continue...")
-        
+
         elif choice == "3":
             max_level = max(progress.completed_levels) + 1 if progress.completed_levels else 1
             level_num = int(Prompt.ask(f"Jump to level (1-{min(max_level, 100)})"))
@@ -1818,7 +1815,7 @@ def main_menu():
             else:
                 console.print(f"[{COLORS['error']}]Invalid level number![/]")
                 time.sleep(2)
-        
+
         elif choice == "4":
             console.clear()
             if progress.achievements:
@@ -1830,14 +1827,14 @@ def main_menu():
             else:
                 console.print(f"[{COLORS['info']}]No achievements yet. Keep learning![/]")
             input("\nPress Enter to continue...")
-        
+
         elif choice == "5":
             if Confirm.ask(f"[{COLORS['error']}]Are you sure you want to reset ALL progress?"):
                 progress = PlayerProgress()
                 save_progress(progress)
                 console.print(f"[{COLORS['success']}]Progress reset![/]")
                 time.sleep(2)
-        
+
         elif choice == "6":
             console.print(f"\n[{COLORS['windows']}]Thanks for playing WindowsQuest! Happy scripting! 👋[/]")
             break
@@ -1852,7 +1849,7 @@ def main():
             console.print(f"[{COLORS['warning']}]Warning: This game is designed for Windows. Some commands may not work on {platform.system()}.[/]")
             if not Confirm.ask("Continue anyway?"):
                 return
-        
+
         console.clear()
         simulate_windows_boot()
         time.sleep(1)

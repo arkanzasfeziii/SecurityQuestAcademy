@@ -5,11 +5,11 @@ import time
 from pathlib import Path
 
 try:
+    from rich import box
     from rich.console import Console
-    from rich.text import Text
     from rich.panel import Panel
     from rich.table import Table
-    from rich import box
+    from rich.text import Text
 except ImportError:
     print("Missing dependency: pip install rich")
     sys.exit(1)
@@ -162,7 +162,7 @@ def launch_game(game: dict) -> None:
         mod.run()
     except ImportError as e:
         con.print(f"  [red]Failed to load {game['name']}: {e}[/red]")
-        con.print(f"  [yellow]Make sure all dependencies are installed: pip install -r requirements.txt[/yellow]")
+        con.print("  [yellow]Make sure all dependencies are installed: pip install -r requirements.txt[/yellow]")
     except Exception as e:
         con.print(f"  [red]Error in {game['name']}: {e}[/red]")
 
@@ -186,7 +186,7 @@ def main() -> None:
         if choice.isdigit() and 1 <= int(choice) <= len(GAMES):
             game = GAMES[int(choice) - 1]
             launch_game(game)
-            con.print(f"\n  [dim]Returned to SecurityQuestAcademy main menu.[/dim]\n")
+            con.print("\n  [dim]Returned to SecurityQuestAcademy main menu.[/dim]\n")
         else:
             con.print(f"  [red]Invalid choice: {choice!r}. Enter 1-{len(GAMES)} or Q.[/red]\n")
 
