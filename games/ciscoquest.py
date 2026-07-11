@@ -15,9 +15,7 @@ import time
 from pathlib import Path
 
 try:
-    from rich import box
     from rich.console import Console
-    from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
 except ImportError:
     os.system(f"{sys.executable} -m pip install rich --quiet")

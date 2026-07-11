@@ -25,7 +25,6 @@ try:
     from rich import box
     from rich.console import Console
     from rich.panel import Panel
-    from rich.progress import Progress, SpinnerColumn, TextColumn
     from rich.prompt import Confirm, Prompt
     from rich.syntax import Syntax
     from rich.table import Table
@@ -177,10 +176,7 @@ def execute_bash(command: str, expected_output: str | None = None) -> tuple[bool
 
 def match_cisco_command(user_input: str, accepted: list[str]) -> bool:
     normalized = " ".join(user_input.strip().lower().split())
-    for a in accepted:
-        if normalized == " ".join(a.strip().lower().split()):
-            return True
-    return False
+    return any(normalized == " ".join(a.strip().lower().split()) for a in accepted)
 
 
 # ---------------------------------------------------------------------------

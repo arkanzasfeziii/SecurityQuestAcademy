@@ -17,9 +17,6 @@ from pathlib import Path
 try:
     from rich import box
     from rich.console import Console
-    from rich.layout import Layout
-    from rich.live import Live
-    from rich.markdown import Markdown
     from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
     from rich.prompt import Confirm, Prompt
