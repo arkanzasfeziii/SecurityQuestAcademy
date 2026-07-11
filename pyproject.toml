@@ -51,6 +51,7 @@ ignore = ["E501", "B904"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-v --tb=short"
+timeout = 60
 
 [tool.mypy]
 python_version = "3.10"
