@@ -176,6 +176,14 @@ pip install -r requirements.txt
 python main.py
 ```
 
+Installed as a package (`pip install -e .`), the same launcher is also
+available as a console script:
+
+```bash
+securityquest
+# or: python -m securityquest
+```
+
 The launcher presents a game selection menu. Pick a quest number (1-7) to start.
 
 Inside each quest:
@@ -242,7 +250,7 @@ Binary exploitation         Secure coding patterns      Registry hardening
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.10+
 - Terminal with Unicode support (for the UI)
 - Dependencies: `rich`, `pycryptodome`, `cryptography`, `bcrypt`, `argon2-cffi`
 
