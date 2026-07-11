@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install ruff>=0.4.0
-      - run: ruff check securityquest/ tests/ --select E,W,F,I
+      - run: ruff check .
 
   test:
     name: Test (Python ${{ matrix.python-version }})

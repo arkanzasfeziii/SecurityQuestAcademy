@@ -11,10 +11,10 @@ install-dev: install ## Install dev dependencies
 	pip install -r requirements-dev.txt
 
 lint: ## Run linter
-	ruff check securityquest/ games/ tests/
+	ruff check .
 
 format: ## Format code
-	ruff format securityquest/ games/ tests/
+	ruff format .
 
 test: ## Run tests
 	pytest tests/ -v
