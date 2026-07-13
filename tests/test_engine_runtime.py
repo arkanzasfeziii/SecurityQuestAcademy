@@ -7,9 +7,11 @@ achievement unlock rules.
 
 import json
 import shutil
+import subprocess
 
 import pytest
 
+from games import base
 from games.base import (
     PlayerProgress,
     check_achievements,
@@ -109,6 +111,26 @@ def test_execute_bash_return_code_only():
     assert ok is True
 
 
+def test_execute_bash_timeout(monkeypatch):
+    def _raise_timeout(*args, **kwargs):
+        raise subprocess.TimeoutExpired(cmd="bash", timeout=5)
+
+    monkeypatch.setattr(base.subprocess, "run", _raise_timeout)
+    ok, output = execute_bash("sleep 999")
+    assert ok is False
+    assert output == "Command timed out"
+
+
+def test_execute_bash_unexpected_error(monkeypatch):
+    def _raise_oserror(*args, **kwargs):
+        raise OSError("bash not found")
+
+    monkeypatch.setattr(base.subprocess, "run", _raise_oserror)
+    ok, output = execute_bash("echo hi")
+    assert ok is False
+    assert "bash not found" in output
+
+
 # ---------------------------------------------------------------------------
 # Persistence: save / load round-trip
 # ---------------------------------------------------------------------------
@@ -151,6 +173,14 @@ def test_save_progress_writes_valid_json(tmp_path):
     data = json.loads(save_file.read_text(encoding="utf-8"))
     assert data["current_level"] == 7
     assert data["total_points"] == 100
+
+
+def test_save_progress_swallows_write_errors(tmp_path, capsys):
+    unwritable_dir_as_file = tmp_path / "progress.json"
+    unwritable_dir_as_file.mkdir()
+    save_progress(PlayerProgress(), unwritable_dir_as_file)
+    out = capsys.readouterr().out
+    assert "Save error" in out
 
 
 # ---------------------------------------------------------------------------

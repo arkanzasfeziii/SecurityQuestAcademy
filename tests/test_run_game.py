@@ -160,3 +160,31 @@ def test_reset_declined_keeps_progress(tmp_path, monkeypatch):
     _run(save_file)
     reloaded = base.load_progress(save_file)
     assert reloaded.current_level == 5
+
+
+def test_boot_sequence_error_is_swallowed(tmp_path, monkeypatch):
+    save_file = tmp_path / "save.json"
+    _prompts(monkeypatch, "6")
+
+    def _boom():
+        raise RuntimeError("boot failed")
+
+    base.run_game(
+        levels=LEVELS, ranks=RANKS, colors=COLORS, save_file=save_file,
+        game_name="TestQuest", show_banner_fn=lambda: None,
+        simulate_boot_fn=_boom, engine="python",
+        achievement_thresholds=ACHIEVEMENT_THRESHOLDS,
+    )
+    assert not save_file.exists()
+
+
+def test_continue_declines_next_level_after_success(tmp_path, monkeypatch):
+    save_file = tmp_path / "save.json"
+    two_levels = LEVELS + [{"id": 2, "title": "Two", "category": "basics", "points": 10,
+                             "description": "d", "challenge": "c", "hint": "h", "test_code": "pass"}]
+    monkeypatch.setitem(base.ENGINE_MAP, "python", lambda level, progress, colors: True)
+    _prompts(monkeypatch, "1", "6")
+    _confirms(monkeypatch, False)
+    _run(save_file, levels=two_levels)
+    reloaded = base.load_progress(save_file)
+    assert reloaded.current_level == 2

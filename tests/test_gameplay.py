@@ -98,6 +98,12 @@ def test_play_python_level_interrupted(monkeypatch):
     assert play_python_level(PY_LEVEL, progress, COLORS) is False
 
 
+def test_play_python_level_solution_request_does_not_submit(monkeypatch):
+    _answers(monkeypatch, "solution", "print(2 + 2)", "done")
+    progress = PlayerProgress()
+    assert play_python_level(PY_LEVEL, progress, COLORS) is True
+
+
 # ---------------------------------------------------------------------------
 # play_cisco_level
 # ---------------------------------------------------------------------------
