@@ -1646,11 +1646,15 @@ def main_menu():
 
         elif choice == "3":
             max_level = max(progress.completed_levels) + 1 if progress.completed_levels else 1
-            level_num = int(Prompt.ask(f"Jump to level (1-{min(max_level, 100)})"))
-            if 1 <= level_num <= min(max_level, 100):
-                progress.current_level = level_num
-                save_progress(progress)
-            else:
+            try:
+                level_num = int(Prompt.ask(f"Jump to level (1-{min(max_level, 100)})"))
+                if 1 <= level_num <= min(max_level, 100):
+                    progress.current_level = level_num
+                    save_progress(progress)
+                else:
+                    console.print(f"[{COLORS['error']}]Invalid level number![/]")
+                    time.sleep(2)
+            except ValueError:
                 console.print(f"[{COLORS['error']}]Invalid level number![/]")
                 time.sleep(2)
 

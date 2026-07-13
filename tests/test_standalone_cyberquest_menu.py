@@ -79,6 +79,13 @@ def test_jump_to_out_of_range_level_shows_error(save_file, monkeypatch, capsys):
     assert "Invalid level number" in out
 
 
+def test_jump_with_non_numeric_input_does_not_crash(save_file, monkeypatch, capsys):
+    _prompts(monkeypatch, "3", "not-a-number", "6")
+    Cyberquest.main_menu()
+    out = capsys.readouterr().out
+    assert "Invalid level number" in out
+
+
 def test_achievements_empty_shows_placeholder(save_file, monkeypatch, capsys):
     _prompts(monkeypatch, "4", "6")
     _inputs(monkeypatch)
