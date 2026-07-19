@@ -56,6 +56,32 @@ def test_continue_failed_level_declines_retry(save_file, monkeypatch):
     assert reloaded.current_level == 1
 
 
+def test_continue_confirmed_advances_through_final_level_to_victory(save_file, monkeypatch, capsys):
+    save_file.write_text(
+        '{"current_level": 99, "completed_levels": [], "total_points": 0, '
+        '"achievements": [], "start_date": "x", "last_played": "x"}',
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(Cyberquest, "play_level", lambda level, progress: True)
+    _prompts(monkeypatch, "1", "6")
+    _confirms(monkeypatch, True)
+    _inputs(monkeypatch)
+    Cyberquest.main_menu()
+    out = capsys.readouterr().out
+    assert "LEGENDARY HACKER" in out
+    reloaded = Cyberquest.load_progress()
+    assert reloaded.current_level == 101
+
+
+def test_continue_failed_level_retries_when_confirmed(save_file, monkeypatch):
+    monkeypatch.setattr(Cyberquest, "play_level", lambda level, progress: False)
+    _prompts(monkeypatch, "1", "6")
+    _confirms(monkeypatch, True, False)
+    Cyberquest.main_menu()
+    reloaded = Cyberquest.load_progress()
+    assert reloaded.current_level == 1
+
+
 def test_view_stats_then_exit(save_file, monkeypatch, capsys):
     _prompts(monkeypatch, "2", "6")
     _inputs(monkeypatch)
