@@ -31,6 +31,29 @@ def test_show_menu_lists_all_games(capsys):
         assert g["name"][:5] in out
 
 
+def test_print_falls_back_to_plain_print_without_console(monkeypatch, capsys):
+    monkeypatch.setattr(cli, "console", None)
+    cli._print("hello")
+    out = capsys.readouterr().out
+    assert out.strip() == "hello"
+
+
+def test_show_banner_falls_back_to_plain_print_without_console(monkeypatch, capsys):
+    monkeypatch.setattr(cli, "console", None)
+    cli.show_banner()
+    out = capsys.readouterr().out
+    assert out.strip() != ""
+
+
+def test_show_menu_falls_back_to_plain_list_without_console(monkeypatch, capsys):
+    monkeypatch.setattr(cli, "console", None)
+    cli.show_menu()
+    out = capsys.readouterr().out
+    for g in GAMES:
+        assert g["name"] in out
+    assert "Enter quest number or Q to quit" in out
+
+
 def test_launch_game_success(monkeypatch):
     calls = []
 
