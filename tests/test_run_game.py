@@ -17,8 +17,18 @@ RANKS = [(1, "Rookie", "Just starting out"), (10, "Veteran", "Seasoned hacker")]
 
 ACHIEVEMENT_THRESHOLDS = [(1, "First Blood", "Complete your first level")]
 
-LEVELS = [{"id": 1, "title": "One", "category": "basics", "points": 10,
-           "description": "d", "challenge": "c", "hint": "h", "test_code": "pass"}]
+LEVELS = [
+    {
+        "id": 1,
+        "title": "One",
+        "category": "basics",
+        "points": 10,
+        "description": "d",
+        "challenge": "c",
+        "hint": "h",
+        "test_code": "pass",
+    }
+]
 
 
 @pytest.fixture(autouse=True)
@@ -170,9 +180,14 @@ def test_boot_sequence_error_is_swallowed(tmp_path, monkeypatch):
         raise RuntimeError("boot failed")
 
     base.run_game(
-        levels=LEVELS, ranks=RANKS, colors=COLORS, save_file=save_file,
-        game_name="TestQuest", show_banner_fn=lambda: None,
-        simulate_boot_fn=_boom, engine="python",
+        levels=LEVELS,
+        ranks=RANKS,
+        colors=COLORS,
+        save_file=save_file,
+        game_name="TestQuest",
+        show_banner_fn=lambda: None,
+        simulate_boot_fn=_boom,
+        engine="python",
         achievement_thresholds=ACHIEVEMENT_THRESHOLDS,
     )
     assert not save_file.exists()
@@ -180,8 +195,18 @@ def test_boot_sequence_error_is_swallowed(tmp_path, monkeypatch):
 
 def test_continue_declines_next_level_after_success(tmp_path, monkeypatch):
     save_file = tmp_path / "save.json"
-    two_levels = LEVELS + [{"id": 2, "title": "Two", "category": "basics", "points": 10,
-                             "description": "d", "challenge": "c", "hint": "h", "test_code": "pass"}]
+    two_levels = LEVELS + [
+        {
+            "id": 2,
+            "title": "Two",
+            "category": "basics",
+            "points": 10,
+            "description": "d",
+            "challenge": "c",
+            "hint": "h",
+            "test_code": "pass",
+        }
+    ]
     monkeypatch.setitem(base.ENGINE_MAP, "python", lambda level, progress, colors: True)
     _prompts(monkeypatch, "1", "6")
     _confirms(monkeypatch, False)

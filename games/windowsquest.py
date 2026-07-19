@@ -1,4 +1,5 @@
 """WindowsQuest wrapper — launches the standalone WindowsQuest game."""
+
 import subprocess
 import sys
 from pathlib import Path

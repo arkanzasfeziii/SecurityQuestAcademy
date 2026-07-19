@@ -37,6 +37,7 @@ COLORS = {
 # Python execution engine
 # ---------------------------------------------------------------------------
 
+
 def test_eval_python_level_match():
     ok, user_out, expected_out = eval_python_level("print(2 + 2)", "print(4)")
     assert ok is True
@@ -69,6 +70,7 @@ def test_eval_python_level_runtime_error():
 # Bash execution engine (requires a bash interpreter)
 # ---------------------------------------------------------------------------
 
+
 def _bash_usable() -> bool:
     """Probe whether bash can actually run a sandboxed script here.
 
@@ -86,9 +88,7 @@ def _bash_usable() -> bool:
         return False
 
 
-requires_bash = pytest.mark.skipif(
-    not _bash_usable(), reason="no working bash interpreter for sandboxed scripts"
-)
+requires_bash = pytest.mark.skipif(not _bash_usable(), reason="no working bash interpreter for sandboxed scripts")
 
 
 @requires_bash
@@ -134,6 +134,7 @@ def test_execute_bash_unexpected_error(monkeypatch):
 # ---------------------------------------------------------------------------
 # Persistence: save / load round-trip
 # ---------------------------------------------------------------------------
+
 
 def test_save_and_load_round_trip(tmp_path):
     save_file = tmp_path / "progress.json"
@@ -221,6 +222,7 @@ def test_check_achievements_none_when_below_threshold(monkeypatch):
 # ---------------------------------------------------------------------------
 # Rank edge case
 # ---------------------------------------------------------------------------
+
 
 def test_get_rank_below_first_threshold():
     ranks = [(1, "Noob", "Just started"), (10, "Hacker", "Getting there")]

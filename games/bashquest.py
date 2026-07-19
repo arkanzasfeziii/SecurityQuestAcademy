@@ -1,4 +1,5 @@
 """BashQuest wrapper — launches the standalone BashQuest game."""
+
 import subprocess
 import sys
 from pathlib import Path

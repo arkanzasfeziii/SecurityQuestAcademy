@@ -44,6 +44,7 @@ console = Console()
 # Player progress
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class PlayerProgress:
     current_level: int = 1
@@ -97,6 +98,7 @@ def load_progress(save_file: Path) -> PlayerProgress:
 # Ranks & stats
 # ---------------------------------------------------------------------------
 
+
 def get_rank(level: int, ranks: list[tuple]) -> tuple[str, str]:
     for min_level, rank_name, description in reversed(ranks):
         if level >= min_level:
@@ -134,6 +136,7 @@ def check_achievements(
 # ---------------------------------------------------------------------------
 # Execution engines
 # ---------------------------------------------------------------------------
+
 
 def _exec_python(code: str) -> tuple[bool, str]:
     buf = io.StringIO()
@@ -183,26 +186,32 @@ def match_cisco_command(user_input: str, accepted: list[str]) -> bool:
 # Level displayer
 # ---------------------------------------------------------------------------
 
+
 def show_level_info(level_data: dict, colors: dict) -> None:
     color_h = colors.get("hacker", colors["primary"])
-    console.print(Panel(
-        f"[{color_h}]LEVEL {level_data['id']}: {level_data['title'].upper()}[/]\n\n"
-        f"[{colors['info']}]Category:[/] [{colors['secondary']}]{level_data.get('category','').upper()}[/]   "
-        f"[{colors['info']}]Points:[/] [{colors['success']}]{level_data['points']}[/]\n\n"
-        f"[{colors['warning']}]Description:[/]\n{level_data['description']}\n\n"
-        f"[{colors['warning']}]Challenge:[/]\n{level_data['challenge']}",
-        border_style=colors["primary"],
-        box=box.DOUBLE,
-    ))
+    console.print(
+        Panel(
+            f"[{color_h}]LEVEL {level_data['id']}: {level_data['title'].upper()}[/]\n\n"
+            f"[{colors['info']}]Category:[/] [{colors['secondary']}]{level_data.get('category', '').upper()}[/]   "
+            f"[{colors['info']}]Points:[/] [{colors['success']}]{level_data['points']}[/]\n\n"
+            f"[{colors['warning']}]Description:[/]\n{level_data['description']}\n\n"
+            f"[{colors['warning']}]Challenge:[/]\n{level_data['challenge']}",
+            border_style=colors["primary"],
+            box=box.DOUBLE,
+        )
+    )
 
 
 # ---------------------------------------------------------------------------
 # Play-level implementations
 # ---------------------------------------------------------------------------
 
+
 def play_python_level(level_data: dict, progress: PlayerProgress, colors: dict) -> bool:
     show_level_info(level_data, colors)
-    console.print(f"\n[{colors['info']}]Type your Python code line by line. Type [bold]done[/] to submit, [bold]hint[/] for help, [bold]skip[/] to skip.[/]\n")
+    console.print(
+        f"\n[{colors['info']}]Type your Python code line by line. Type [bold]done[/] to submit, [bold]hint[/] for help, [bold]skip[/] to skip.[/]\n"
+    )
     lines: list[str] = []
     while True:
         try:
@@ -252,7 +261,9 @@ def play_python_level(level_data: dict, progress: PlayerProgress, colors: dict) 
 
 def play_cisco_level(level_data: dict, progress: PlayerProgress, colors: dict) -> bool:
     show_level_info(level_data, colors)
-    console.print(f"\n[{colors['info']}]Type the Cisco IOS command. [bold]hint[/] for help, [bold]skip[/] to skip.[/]\n")
+    console.print(
+        f"\n[{colors['info']}]Type the Cisco IOS command. [bold]hint[/] for help, [bold]skip[/] to skip.[/]\n"
+    )
     while True:
         try:
             user_input = Prompt.ask(f"[{colors.get('hacker', colors['primary'])}]Router#")
@@ -332,8 +343,8 @@ def _level_pass(level_data: dict, progress: PlayerProgress, colors: dict) -> Non
 
 ENGINE_MAP = {
     "python": play_python_level,
-    "cisco":  play_cisco_level,
-    "bash":   play_bash_level,
+    "cisco": play_cisco_level,
+    "bash": play_bash_level,
 }
 
 
@@ -375,9 +386,7 @@ def run_game(
         t.add_row("6", "Exit to Academy")
         console.print(t)
 
-        choice = Prompt.ask(
-            f"\n[{colors['secondary']}]Choose", choices=["1", "2", "3", "4", "5", "6"]
-        )
+        choice = Prompt.ask(f"\n[{colors['secondary']}]Choose", choices=["1", "2", "3", "4", "5", "6"])
 
         if choice == "1":
             while progress.current_level <= len(levels):
@@ -389,7 +398,9 @@ def run_game(
                     save_progress(progress, save_file)
                     check_achievements(progress, colors, achievement_thresholds)
                     if progress.current_level > len(levels):
-                        console.print(f"\n[{colors.get('hacker', colors['primary'])}]🎉 YOU COMPLETED ALL 100 LEVELS! 🎉[/]")
+                        console.print(
+                            f"\n[{colors.get('hacker', colors['primary'])}]🎉 YOU COMPLETED ALL 100 LEVELS! 🎉[/]"
+                        )
                         console.print(f"[{colors['success']}]Total Points: {progress.total_points:,}[/]")
                         input("\nPress Enter to return…")
                         break

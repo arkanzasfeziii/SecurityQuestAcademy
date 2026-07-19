@@ -9,8 +9,16 @@ import pytest
 from standalone import Cyberquest
 
 REQUIRED_KEYS = {
-    "id", "title", "description", "challenge", "hint",
-    "solution", "test_code", "explanation", "points", "category",
+    "id",
+    "title",
+    "description",
+    "challenge",
+    "hint",
+    "solution",
+    "test_code",
+    "explanation",
+    "points",
+    "category",
 }
 
 # Levels whose reference code reads from stdin; feed a canned answer so their
@@ -60,6 +68,5 @@ def test_documented_solution_matches_expected_output(level):
     expected = _run(level["test_code"], stdin_answer=stdin_answer)
     actual = _run(level["solution"], stdin_answer=stdin_answer)
     assert actual == expected, (
-        f"level {level['id']} ('{level['title']}'): solution output {actual!r} "
-        f"does not match expected {expected!r}"
+        f"level {level['id']} ('{level['title']}'): solution output {actual!r} does not match expected {expected!r}"
     )

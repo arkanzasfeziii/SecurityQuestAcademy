@@ -5,9 +5,16 @@ import pytest
 from standalone import Cyberquest
 
 LEVEL = {
-    "id": 1, "title": "Add", "category": "basics", "points": 10,
-    "description": "d", "challenge": "c", "hint": "print(2 + 2)",
-    "explanation": "e", "test_code": "print(4)", "solution": "print(2 + 2)",
+    "id": 1,
+    "title": "Add",
+    "category": "basics",
+    "points": 10,
+    "description": "d",
+    "challenge": "c",
+    "hint": "print(2 + 2)",
+    "explanation": "e",
+    "test_code": "print(4)",
+    "solution": "print(2 + 2)",
 }
 
 

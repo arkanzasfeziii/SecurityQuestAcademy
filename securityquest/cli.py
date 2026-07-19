@@ -10,6 +10,7 @@ try:
     from rich.console import Console
     from rich.table import Table
     from rich.text import Text
+
     HAS_RICH = True
 except ImportError:
     HAS_RICH = False
@@ -56,8 +57,10 @@ def show_menu() -> None:
 
     table = Table(
         title="[bold bright_cyan]── SELECT YOUR QUEST ──[/bold bright_cyan]",
-        box=box.ROUNDED, border_style="bright_cyan",
-        header_style="bold bright_cyan", show_lines=True,
+        box=box.ROUNDED,
+        border_style="bright_cyan",
+        header_style="bold bright_cyan",
+        show_lines=True,
     )
     table.add_column("#", style="bold white", width=4, justify="center")
     table.add_column("Game", style="bold", width=16)
@@ -69,7 +72,9 @@ def show_menu() -> None:
         table.add_row(
             str(g["id"]),
             f"[{g['color']}]{g['name']}[/{g['color']}]",
-            g["description"], g["levels"], g["topics"],
+            g["description"],
+            g["levels"],
+            g["topics"],
         )
     console.print(table)
     console.print("\n  [dim]Enter the number of the quest, or [bold]Q[/bold] to quit.[/dim]\n")

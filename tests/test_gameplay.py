@@ -38,6 +38,7 @@ def _answers(monkeypatch, *values):
 def _raise_interrupt(monkeypatch):
     def _ask(*a, **kw):
         raise KeyboardInterrupt
+
     monkeypatch.setattr("games.base.Prompt.ask", _ask)
 
 
@@ -46,9 +47,15 @@ def _raise_interrupt(monkeypatch):
 # ---------------------------------------------------------------------------
 
 PY_LEVEL = {
-    "id": 1, "title": "Add", "category": "basics", "points": 10,
-    "description": "d", "challenge": "c", "hint": "print(2+2)",
-    "explanation": "e", "test_code": "print(4)",
+    "id": 1,
+    "title": "Add",
+    "category": "basics",
+    "points": 10,
+    "description": "d",
+    "challenge": "c",
+    "hint": "print(2+2)",
+    "explanation": "e",
+    "test_code": "print(4)",
 }
 
 
@@ -109,9 +116,15 @@ def test_play_python_level_solution_request_does_not_submit(monkeypatch):
 # ---------------------------------------------------------------------------
 
 CISCO_LEVEL = {
-    "id": 2, "title": "Save config", "category": "cisco", "points": 20,
-    "description": "d", "challenge": "c", "hint": "copy run start",
-    "explanation": "e", "solution": "copy running-config startup-config",
+    "id": 2,
+    "title": "Save config",
+    "category": "cisco",
+    "points": 20,
+    "description": "d",
+    "challenge": "c",
+    "hint": "copy run start",
+    "explanation": "e",
+    "solution": "copy running-config startup-config",
     "accepted": ["copy running-config startup-config", "copy run start"],
 }
 
@@ -161,9 +174,15 @@ def test_play_cisco_level_interrupted(monkeypatch):
 # ---------------------------------------------------------------------------
 
 BASH_LEVEL = {
-    "id": 3, "title": "Greet", "category": "bash", "points": 15,
-    "description": "d", "challenge": "c", "hint": "echo hello",
-    "explanation": "e", "expected_output": "hello",
+    "id": 3,
+    "title": "Greet",
+    "category": "bash",
+    "points": 15,
+    "description": "d",
+    "challenge": "c",
+    "hint": "echo hello",
+    "explanation": "e",
+    "expected_output": "hello",
 }
 
 
@@ -209,6 +228,7 @@ def test_play_bash_level_interrupted(monkeypatch):
 # ---------------------------------------------------------------------------
 # _level_pass
 # ---------------------------------------------------------------------------
+
 
 def test_level_pass_awards_points_once():
     progress = PlayerProgress()

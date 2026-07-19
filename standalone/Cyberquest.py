@@ -88,7 +88,7 @@ LEVELS = [
         "test_code": 'print("Hello, CyberQuest!")',
         "explanation": "The print() function displays text. This is your first step into programming!",
         "points": 10,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 2,
@@ -100,7 +100,7 @@ LEVELS = [
         "test_code": 'username = "hacker"\nprint(username)',
         "explanation": "Variables store data. Use = to assign values.",
         "points": 10,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 3,
@@ -112,7 +112,7 @@ LEVELS = [
         "test_code": 'first_name = "Cyber"\nlast_name = "Warrior"\nprint(first_name + " " + last_name)',
         "explanation": "String concatenation combines text. Use + or f-strings.",
         "points": 15,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 4,
@@ -124,7 +124,7 @@ LEVELS = [
         "test_code": "print(256 + 512)",
         "explanation": "Python handles math: +, -, *, /, //, %, **",
         "points": 15,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 5,
@@ -136,7 +136,7 @@ LEVELS = [
         "test_code": 'name = "Agent"\nprint("Welcome, " + name)',
         "explanation": "input() gets user input as a string.",
         "points": 20,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 6,
@@ -148,7 +148,7 @@ LEVELS = [
         "test_code": 'num = int("42")\nprint(num + 8)',
         "explanation": "int(), str(), float() convert between types.",
         "points": 20,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 7,
@@ -160,7 +160,7 @@ LEVELS = [
         "test_code": 'password = "secret"\nif password == "secret":\n    print("Access Granted")',
         "explanation": "if statements execute code when conditions are true.",
         "points": 25,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 8,
@@ -172,7 +172,7 @@ LEVELS = [
         "test_code": 'port = 443\nif port == 443:\n    print("HTTPS")\nelse:\n    print("HTTP")',
         "explanation": "else provides an alternative when if is false.",
         "points": 25,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 9,
@@ -184,7 +184,7 @@ LEVELS = [
         "test_code": "ports = [80, 443, 22, 21]\nprint(ports)",
         "explanation": "Lists store ordered collections of items.",
         "points": 30,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 10,
@@ -196,7 +196,7 @@ LEVELS = [
         "test_code": "numbers = [10, 20, 30, 40]\nprint(numbers[0])",
         "explanation": "Access items with list[index]. Python uses 0-based indexing.",
         "points": 30,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 11,
@@ -208,7 +208,7 @@ LEVELS = [
         "test_code": "for num in [1, 2, 3]:\n    print(num)",
         "explanation": "for loops iterate over sequences.",
         "points": 35,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 12,
@@ -220,7 +220,7 @@ LEVELS = [
         "test_code": "for i in range(5):\n    print(i)",
         "explanation": "range(n) generates numbers from 0 to n-1.",
         "points": 35,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 13,
@@ -232,7 +232,7 @@ LEVELS = [
         "test_code": "count = 1\nwhile count <= 3:\n    print(count)\n    count += 1",
         "explanation": "while loops continue until the condition becomes false.",
         "points": 40,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 14,
@@ -244,7 +244,7 @@ LEVELS = [
         "test_code": 'def greet():\n    print("Hello, Hacker!")\ngreet()',
         "explanation": "Functions encapsulate reusable code. def creates them.",
         "points": 40,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 15,
@@ -256,7 +256,7 @@ LEVELS = [
         "test_code": "def scan_port(port):\n    print(port)\nscan_port(80)",
         "explanation": "Parameters let functions accept input values.",
         "points": 45,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 16,
@@ -268,7 +268,7 @@ LEVELS = [
         "test_code": "def add(a, b):\n    return a + b\nprint(add(5, 7))",
         "explanation": "return sends values back from functions.",
         "points": 45,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 17,
@@ -280,7 +280,7 @@ LEVELS = [
         "test_code": 'user = {"username": "admin", "password": "secret"}\nprint(user)',
         "explanation": "Dictionaries map keys to values.",
         "points": 50,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 18,
@@ -292,7 +292,7 @@ LEVELS = [
         "test_code": "server = {'ip': '192.168.1.1', 'port': 80}\nprint(server['ip'])",
         "explanation": "Access dictionary values with [key].",
         "points": 50,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 19,
@@ -304,7 +304,7 @@ LEVELS = [
         "test_code": 'text = "HACKER"\nprint(text.lower())',
         "explanation": "Strings have methods: .lower(), .upper(), .strip(), etc.",
         "points": 55,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 20,
@@ -316,9 +316,8 @@ LEVELS = [
         "test_code": "nums = [1, 2]\nnums.append(3)\nprint(nums)",
         "explanation": "Lists have methods: .append(), .remove(), .pop(), etc.",
         "points": 55,
-        "category": "basics"
+        "category": "basics",
     },
-
     # === INTERMEDIATE TIER (21-50): Security Concepts ===
     {
         "id": 21,
@@ -330,7 +329,7 @@ LEVELS = [
         "test_code": "def check_password(pwd):\n    return len(pwd) >= 8\nprint(check_password('secret123'))",
         "explanation": "len() returns string length. Good passwords are long!",
         "points": 60,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 22,
@@ -342,7 +341,7 @@ LEVELS = [
         "test_code": "letter = 'A'\nshifted = chr(ord(letter) + 3)\nprint(shifted)",
         "explanation": "ord() gets ASCII value, chr() converts back. Caesar cipher basics!",
         "points": 65,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 23,
@@ -354,7 +353,7 @@ LEVELS = [
         "test_code": "import base64\nencoded = base64.b64encode(b'hello')\nprint(encoded)",
         "explanation": "Base64 encodes binary data to ASCII. Not secure, just encoding!",
         "points": 70,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 24,
@@ -366,7 +365,7 @@ LEVELS = [
         "test_code": "import hashlib\nhash_obj = hashlib.md5(b'password')\nprint(hash_obj.hexdigest())",
         "explanation": "Hashes are one-way. MD5 is weak, use SHA256 in production!",
         "points": 75,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 25,
@@ -378,7 +377,7 @@ LEVELS = [
         "test_code": "common_ports = [21, 22, 80, 443]\nprint(80 in common_ports)",
         "explanation": "'in' checks membership. Foundation of port scanning!",
         "points": 80,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 26,
@@ -390,7 +389,7 @@ LEVELS = [
         "test_code": "ip = '192.168.1.1'\nparts = ip.split('.')\nprint(len(parts) == 4)",
         "explanation": "IP validation is crucial. This is a basic check.",
         "points": 85,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 27,
@@ -402,7 +401,7 @@ LEVELS = [
         "test_code": "try:\n    num = int('abc')\nexcept:\n    print('Invalid number')",
         "explanation": "try-except prevents crashes. Essential for robust code!",
         "points": 90,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 28,
@@ -414,7 +413,7 @@ LEVELS = [
         "test_code": "print('File read simulation')",
         "explanation": "File I/O is crucial for log analysis and data processing.",
         "points": 95,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 29,
@@ -426,7 +425,7 @@ LEVELS = [
         "test_code": "squares = [x**2 for x in range(5)]\nprint(squares)",
         "explanation": "List comprehensions are powerful and Pythonic!",
         "points": 100,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 30,
@@ -438,9 +437,8 @@ LEVELS = [
         "test_code": "import re\nip = '192.168.1.1'\ndigits = re.findall(r'\\d+', ip)\nprint(digits)",
         "explanation": "Regex is powerful for log parsing and input validation!",
         "points": 110,
-        "category": "security"
+        "category": "security",
     },
-
     # === ADVANCED TIER (31-60): Real Security Tasks ===
     {
         "id": 31,
@@ -452,7 +450,7 @@ LEVELS = [
         "test_code": "user_input = \"admin' OR 1=1 --\"\nif \"' OR\" in user_input or '--' in user_input:\n    print('SQLi Detected!')",
         "explanation": "Input validation prevents SQL injection attacks!",
         "points": 120,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 32,
@@ -464,7 +462,7 @@ LEVELS = [
         "test_code": "input_data = '<script>alert(1)</script>'\nif '<script>' in input_data.lower():\n    print('XSS Detected!')",
         "explanation": "XSS detection protects against malicious JavaScript!",
         "points": 125,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 33,
@@ -476,7 +474,7 @@ LEVELS = [
         "test_code": "attempts = 0\nfor i in range(5):\n    attempts += 1\n    if attempts >= 3:\n        print('Account locked!')\n        break",
         "explanation": "Rate limiting prevents brute force attacks!",
         "points": 130,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 34,
@@ -488,19 +486,19 @@ LEVELS = [
         "test_code": "import hashlib\nstored = hashlib.sha256(b'mypassword').hexdigest()\ninput_hash = hashlib.sha256(b'mypassword').hexdigest()\nprint(stored == input_hash)",
         "explanation": "Never store plaintext passwords! Always hash them.",
         "points": 135,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 35,
         "title": "JSON Parsing",
         "description": "Parse API responses.",
-        "challenge": "Parse JSON string '{\"status\": \"success\"}' and print the status value.",
+        "challenge": 'Parse JSON string \'{"status": "success"}\' and print the status value.',
         "hint": "import json; json.loads()",
         "solution": "import json\ndata = json.loads('{\"status\": \"success\"}')\nprint(data['status'])",
         "test_code": "import json\ndata = json.loads('{\"status\": \"success\"}')\nprint(data['status'])",
         "explanation": "JSON is everywhere in APIs and web security!",
         "points": 140,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 36,
@@ -512,7 +510,7 @@ LEVELS = [
         "test_code": "codes = {200: 'OK', 404: 'Not Found', 500: 'Server Error'}\nprint(codes[404])",
         "explanation": "HTTP status codes tell you what happened in requests!",
         "points": 145,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 37,
@@ -524,7 +522,7 @@ LEVELS = [
         "test_code": "url = 'https://example.com/path?key=value'\ndomain = url.split('//')[1].split('/')[0]\nprint(domain)",
         "explanation": "URL parsing is essential for web security analysis!",
         "points": 150,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 38,
@@ -536,7 +534,7 @@ LEVELS = [
         "test_code": "path = '../../etc/passwd'\nif '../' in path:\n    print('Directory traversal detected!')",
         "explanation": "Path traversal lets attackers access unauthorized files!",
         "points": 155,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 39,
@@ -548,7 +546,7 @@ LEVELS = [
         "test_code": "email = 'hacker@example.com'\nif '@' in email and '.' in email:\n    print('Valid format')",
         "explanation": "Input validation prevents injection and errors!",
         "points": 160,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 40,
@@ -560,7 +558,7 @@ LEVELS = [
         "test_code": "cmd = 'ls; rm -rf /'\nif ';' in cmd or '|' in cmd or '&' in cmd:\n    print('Command injection detected!')",
         "explanation": "Command injection can execute arbitrary system commands!",
         "points": 165,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 41,
@@ -572,7 +570,7 @@ LEVELS = [
         "test_code": "import codecs\ntext = 'hello'\nencoded = codecs.encode(text, 'rot_13')\nprint(encoded)",
         "explanation": "ROT13 is a simple substitution cipher. Not secure!",
         "points": 170,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 42,
@@ -584,7 +582,7 @@ LEVELS = [
         "test_code": "text = 'ABC'\nhex_value = text.encode().hex()\nprint(hex_value)",
         "explanation": "Hex encoding is common in security and networking!",
         "points": 175,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 43,
@@ -596,7 +594,7 @@ LEVELS = [
         "test_code": "requests = 0\nmax_requests = 5\nfor i in range(10):\n    if requests < max_requests:\n        requests += 1\n        print(f'Request {requests} allowed')\n    else:\n        print('Rate limit exceeded!')\n        break",
         "explanation": "Rate limiting prevents DoS and brute force attacks!",
         "points": 180,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 44,
@@ -608,7 +606,7 @@ LEVELS = [
         "test_code": "jwt = 'eyJ0eXAi.eyJzdWIi.SflKxwRJ'\nparts = jwt.split('.')\nprint(f'JWT has {len(parts)} parts')",
         "explanation": "JWTs have 3 parts: header, payload, signature!",
         "points": 185,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 45,
@@ -620,7 +618,7 @@ LEVELS = [
         "test_code": "headers = {'Access-Control-Allow-Origin': '*'}\nif headers.get('Access-Control-Allow-Origin') == '*':\n    print('Insecure CORS configuration!')",
         "explanation": "CORS * allows any domain to access resources!",
         "points": 190,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 46,
@@ -632,7 +630,7 @@ LEVELS = [
         "test_code": "cookie = 'session=abc123; HttpOnly; Secure'\nif 'HttpOnly' in cookie and 'Secure' in cookie:\n    print('Cookie is secure!')",
         "explanation": "HttpOnly prevents XSS, Secure ensures HTTPS only!",
         "points": 195,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 47,
@@ -644,7 +642,7 @@ LEVELS = [
         "test_code": "import hmac\nstored = 'secret123'\nuser_input = 'secret123'\nif hmac.compare_digest(stored, user_input):\n    print('Match!')",
         "explanation": "Timing attacks can leak information. Use constant-time comparisons!",
         "points": 200,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 48,
@@ -656,7 +654,7 @@ LEVELS = [
         "test_code": "url = 'http://localhost/admin'\nif 'localhost' in url or '127.0.0.1' in url:\n    print('SSRF attempt detected!')",
         "explanation": "SSRF lets attackers access internal resources!",
         "points": 205,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 49,
@@ -668,7 +666,7 @@ LEVELS = [
         "test_code": "xml = '<!DOCTYPE foo [<!ENTITY xxe SYSTEM \"file:///etc/passwd\">]>'\nif '<!ENTITY' in xml or 'SYSTEM' in xml:\n    print('XXE detected!')",
         "explanation": "XXE can read files and cause denial of service!",
         "points": 210,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 50,
@@ -680,9 +678,8 @@ LEVELS = [
         "test_code": "code = 'data = pickle.loads(user_input)'\nif 'pickle.loads' in code:\n    print('Insecure deserialization detected!')",
         "explanation": "Deserializing untrusted data can execute arbitrary code!",
         "points": 215,
-        "category": "security"
+        "category": "security",
     },
-
     # === EXPERT TIER (51-75): Advanced Techniques ===
     {
         "id": 51,
@@ -694,7 +691,7 @@ LEVELS = [
         "test_code": "print('AES is a strong symmetric cipher')",
         "explanation": "AES is the standard for symmetric encryption!",
         "points": 220,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 52,
@@ -706,7 +703,7 @@ LEVELS = [
         "test_code": "print('RSA uses public-private key pairs')",
         "explanation": "RSA enables secure key exchange and digital signatures!",
         "points": 225,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 53,
@@ -718,7 +715,7 @@ LEVELS = [
         "test_code": "import hmac\nimport hashlib\nhmac_value = hmac.new(b'secret', b'message', hashlib.sha256).hexdigest()\nprint(hmac_value)",
         "explanation": "HMAC ensures message authenticity and integrity!",
         "points": 230,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 54,
@@ -730,7 +727,7 @@ LEVELS = [
         "test_code": "import os\nsalt = os.urandom(16)\nprint(len(salt.hex()))",
         "explanation": "Salts prevent rainbow table attacks on password hashes!",
         "points": 235,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 55,
@@ -742,7 +739,7 @@ LEVELS = [
         "test_code": "print('Bcrypt is intentionally slow to prevent brute force')",
         "explanation": "Use bcrypt, scrypt, or Argon2 for password hashing!",
         "points": 240,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 56,
@@ -754,7 +751,7 @@ LEVELS = [
         "test_code": "session_token = 'abc123'\nrequest_token = 'abc123'\nif session_token == request_token:\n    print('CSRF token valid')",
         "explanation": "CSRF tokens prevent unauthorized actions on behalf of users!",
         "points": 245,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 57,
@@ -766,7 +763,7 @@ LEVELS = [
         "test_code": "components = ['Client', 'Resource Server', 'Authorization Server']\nprint(components)",
         "explanation": "OAuth enables secure delegated access!",
         "points": 250,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 58,
@@ -778,7 +775,7 @@ LEVELS = [
         "test_code": "print('Always use parameterized queries!')",
         "explanation": "Prepared statements separate code from data!",
         "points": 255,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 59,
@@ -790,7 +787,7 @@ LEVELS = [
         "test_code": "csp = \"Content-Security-Policy: script-src 'self'\"\nprint(csp)",
         "explanation": "CSP prevents XSS by controlling resource loading!",
         "points": 260,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 60,
@@ -802,7 +799,7 @@ LEVELS = [
         "test_code": "print('SRI ensures CDN files are not tampered with')",
         "explanation": "SRI protects against compromised CDNs!",
         "points": 265,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 61,
@@ -814,7 +811,7 @@ LEVELS = [
         "test_code": "print('DNS rebinding bypasses same-origin policy')",
         "explanation": "DNS rebinding can access internal networks!",
         "points": 270,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 62,
@@ -826,7 +823,7 @@ LEVELS = [
         "test_code": "print('Race conditions occur with concurrent operations')",
         "explanation": "Race conditions can lead to security vulnerabilities!",
         "points": 275,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 63,
@@ -838,7 +835,7 @@ LEVELS = [
         "test_code": "print('Integer overflow can cause unexpected behavior')",
         "explanation": "Python handles big integers, but other languages don't!",
         "points": 280,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 64,
@@ -850,7 +847,7 @@ LEVELS = [
         "test_code": "print('Buffer overflows can execute arbitrary code')",
         "explanation": "Not common in Python, but critical in C/C++!",
         "points": 285,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 65,
@@ -862,7 +859,7 @@ LEVELS = [
         "test_code": "print('Side channels leak information indirectly')",
         "explanation": "Side channels bypass cryptographic security!",
         "points": 290,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 66,
@@ -874,7 +871,7 @@ LEVELS = [
         "test_code": "print('Privilege escalation gains unauthorized access')",
         "explanation": "Always validate authorization, not just authentication!",
         "points": 295,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 67,
@@ -886,7 +883,7 @@ LEVELS = [
         "test_code": "print('Zero-days are vulnerabilities without patches')",
         "explanation": "Zero-days are extremely valuable to attackers!",
         "points": 300,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 68,
@@ -898,7 +895,7 @@ LEVELS = [
         "test_code": "questions = ['What building?', 'What wrong?', 'What doing?', 'Did good?']\nprint(questions)",
         "explanation": "Threat modeling identifies risks early!",
         "points": 305,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 69,
@@ -910,7 +907,7 @@ LEVELS = [
         "test_code": "print('Defense in depth uses multiple security layers')",
         "explanation": "No single defense is perfect. Layer them!",
         "points": 310,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 70,
@@ -922,7 +919,7 @@ LEVELS = [
         "test_code": "print('Least privilege limits damage from compromises')",
         "explanation": "Minimize permissions to reduce attack surface!",
         "points": 315,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 71,
@@ -934,7 +931,7 @@ LEVELS = [
         "test_code": "print('Fail securely: deny access on errors')",
         "explanation": "Errors should never grant unintended access!",
         "points": 320,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 72,
@@ -946,7 +943,7 @@ LEVELS = [
         "test_code": "print('Security through obscurity is not real security')",
         "explanation": "Assume attacker knows your system. Use strong security!",
         "points": 325,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 73,
@@ -958,7 +955,7 @@ LEVELS = [
         "test_code": "owasp = ['Injection', 'Broken Auth', 'XSS']\nprint(owasp)",
         "explanation": "OWASP Top 10 guides web application security!",
         "points": 330,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 74,
@@ -970,7 +967,7 @@ LEVELS = [
         "test_code": "phases = ['Recon', 'Scanning', 'Exploitation', 'Post-Exploitation']\nprint(phases)",
         "explanation": "Systematic approach ensures thorough testing!",
         "points": 335,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 75,
@@ -982,9 +979,8 @@ LEVELS = [
         "test_code": "print('Bug bounties encourage responsible disclosure')",
         "explanation": "Report bugs to vendors, get rewarded!",
         "points": 340,
-        "category": "security"
+        "category": "security",
     },
-
     # === MASTER TIER (76-100): Professional Security Engineering ===
     {
         "id": 76,
@@ -996,7 +992,7 @@ LEVELS = [
         "test_code": "import secrets\ntoken = secrets.token_hex(16)\nprint(len(token))",
         "explanation": "Never use random module for security! Use secrets!",
         "points": 345,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 77,
@@ -1008,7 +1004,7 @@ LEVELS = [
         "test_code": "print('PBKDF2 derives strong keys from passwords')",
         "explanation": "KDFs make brute forcing passwords expensive!",
         "points": 350,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 78,
@@ -1020,7 +1016,7 @@ LEVELS = [
         "test_code": "print('Digital signatures ensure authenticity and integrity')",
         "explanation": "Signatures prevent tampering and impersonation!",
         "points": 355,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 79,
@@ -1032,7 +1028,7 @@ LEVELS = [
         "test_code": "print('Certificate pinning validates specific certs')",
         "explanation": "Pinning prevents rogue CA certificates!",
         "points": 360,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 80,
@@ -1044,7 +1040,7 @@ LEVELS = [
         "test_code": "print('PFS protects past sessions even if key compromised')",
         "explanation": "PFS ensures past traffic stays secure!",
         "points": 365,
-        "category": "crypto"
+        "category": "crypto",
     },
     {
         "id": 81,
@@ -1056,7 +1052,7 @@ LEVELS = [
         "test_code": "print('Token bucket allows burst with smooth refill')",
         "explanation": "Token bucket balances burst and sustained rate!",
         "points": 370,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 82,
@@ -1068,7 +1064,7 @@ LEVELS = [
         "test_code": "print('mTLS provides strong mutual authentication')",
         "explanation": "mTLS is stronger than password authentication!",
         "points": 375,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 83,
@@ -1080,7 +1076,7 @@ LEVELS = [
         "test_code": "headers = ['CSP', 'HSTS', 'X-Frame-Options', 'X-Content-Type-Options', 'Referrer-Policy']\nprint(headers)",
         "explanation": "Security headers provide defense in depth!",
         "points": 380,
-        "category": "web"
+        "category": "web",
     },
     {
         "id": 84,
@@ -1092,7 +1088,7 @@ LEVELS = [
         "test_code": "print('WebAuthn enables passwordless authentication')",
         "explanation": "Hardware keys are phishing-resistant!",
         "points": 385,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 85,
@@ -1104,7 +1100,7 @@ LEVELS = [
         "test_code": "print('Supply chain attacks target dependencies')",
         "explanation": "Modern apps have hundreds of dependencies!",
         "points": 390,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 86,
@@ -1116,7 +1112,7 @@ LEVELS = [
         "test_code": "print('Container security requires multiple controls')",
         "explanation": "Containers share kernel, need careful isolation!",
         "points": 395,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 87,
@@ -1128,7 +1124,7 @@ LEVELS = [
         "test_code": "print('Zero trust verifies every request')",
         "explanation": "Modern security doesn't trust internal networks!",
         "points": 400,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 88,
@@ -1140,7 +1136,7 @@ LEVELS = [
         "test_code": "phases = ['Requirements', 'Design', 'Implementation', 'Testing', 'Deployment', 'Maintenance']\nprint(phases)",
         "explanation": "Integrate security from day one!",
         "points": 405,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 89,
@@ -1152,7 +1148,7 @@ LEVELS = [
         "test_code": "ir = ['Preparation', 'Detection', 'Containment', 'Eradication', 'Recovery', 'Lessons']\nprint(ir)",
         "explanation": "Good IR minimizes damage and recovery time!",
         "points": 410,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 90,
@@ -1164,7 +1160,7 @@ LEVELS = [
         "test_code": "metrics = ['MTTR', 'Vuln Count', 'Patch Cadence', 'Incident Rate']\nprint(metrics)",
         "explanation": "Metrics drive security improvements!",
         "points": 415,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 91,
@@ -1176,7 +1172,7 @@ LEVELS = [
         "test_code": "frameworks = ['PCI-DSS', 'HIPAA', 'GDPR', 'SOC 2', 'ISO 27001']\nprint(frameworks)",
         "explanation": "Compliance is minimum baseline, not maximum security!",
         "points": 420,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 92,
@@ -1188,7 +1184,7 @@ LEVELS = [
         "test_code": "print('Red Team: Attack. Blue Team: Defend. Purple Team: Collaborate.')",
         "explanation": "Team exercises improve both offense and defense!",
         "points": 425,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 93,
@@ -1200,7 +1196,7 @@ LEVELS = [
         "test_code": "print('SIEMs detect threats through log correlation')",
         "explanation": "Log everything, analyze patterns, detect anomalies!",
         "points": 430,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 94,
@@ -1212,7 +1208,7 @@ LEVELS = [
         "test_code": "print('Threat intelligence enables proactive defense')",
         "explanation": "Use IOCs to detect attacks before they succeed!",
         "points": 435,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 95,
@@ -1224,7 +1220,7 @@ LEVELS = [
         "test_code": "print('SOAR automates security operations')",
         "explanation": "Automation frees analysts for complex investigations!",
         "points": 440,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 96,
@@ -1236,7 +1232,7 @@ LEVELS = [
         "test_code": "print('CSPM detects cloud misconfigurations')",
         "explanation": "Cloud security requires continuous monitoring!",
         "points": 445,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 97,
@@ -1248,7 +1244,7 @@ LEVELS = [
         "test_code": "print('DevSecOps makes security everyone\\'s responsibility')",
         "explanation": "Automate security testing in CI/CD!",
         "points": 450,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 98,
@@ -1260,7 +1256,7 @@ LEVELS = [
         "test_code": "print('Blockchain has unique security challenges')",
         "explanation": "Smart contracts need auditing like any code!",
         "points": 455,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 99,
@@ -1272,7 +1268,7 @@ LEVELS = [
         "test_code": "print('AI/ML systems need security too')",
         "explanation": "Adversarial examples can fool ML models!",
         "points": 460,
-        "category": "security"
+        "category": "security",
     },
     {
         "id": 100,
@@ -1317,7 +1313,7 @@ if re.match(r'^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$', email):
 print("Congratulations, Legendary Hacker!")""",
         "explanation": "You've mastered Python security! You're now a Legendary Hacker! 🏆",
         "points": 500,
-        "category": "final"
+        "category": "final",
     },
 ]
 
@@ -1358,7 +1354,7 @@ class PlayerProgress:
 def save_progress(progress: PlayerProgress):
     """Save player progress to file."""
     try:
-        with open(SAVE_FILE, 'w') as f:
+        with open(SAVE_FILE, "w") as f:
             json.dump(progress.to_dict(), f, indent=2)
     except Exception as e:
         console.print(f"[{COLORS['error']}]Error saving progress: {e}[/]")
@@ -1412,9 +1408,9 @@ def show_stats(progress: PlayerProgress):
     """Display player statistics."""
     rank_name, rank_desc = get_rank(progress.current_level)
 
-    table = Table(title="Your Stats", box=box.DOUBLE_EDGE, border_style=COLORS['primary'])
-    table.add_column("Stat", style=COLORS['secondary'], no_wrap=True)
-    table.add_column("Value", style=COLORS['hacker'])
+    table = Table(title="Your Stats", box=box.DOUBLE_EDGE, border_style=COLORS["primary"])
+    table.add_column("Stat", style=COLORS["secondary"], no_wrap=True)
+    table.add_column("Value", style=COLORS["hacker"])
 
     table.add_row("Current Level", f"{progress.current_level}/100")
     table.add_row("Completed Levels", str(len(progress.completed_levels)))
@@ -1429,19 +1425,19 @@ def show_stats(progress: PlayerProgress):
 def show_level_info(level_data: dict):
     """Display information about a level."""
     panel = Panel(
-        f"""[{COLORS['hacker']}]LEVEL {level_data['id']}: {level_data['title'].upper()}[/]
+        f"""[{COLORS["hacker"]}]LEVEL {level_data["id"]}: {level_data["title"].upper()}[/]
 
-[{COLORS['info']}]Category:[/] [{COLORS['secondary']}]{level_data['category'].upper()}[/]
-[{COLORS['info']}]Points:[/] [{COLORS['success']}]{level_data['points']}[/]
+[{COLORS["info"]}]Category:[/] [{COLORS["secondary"]}]{level_data["category"].upper()}[/]
+[{COLORS["info"]}]Points:[/] [{COLORS["success"]}]{level_data["points"]}[/]
 
-[{COLORS['warning']}]Description:[/]
-{level_data['description']}
+[{COLORS["warning"]}]Description:[/]
+{level_data["description"]}
 
-[{COLORS['warning']}]Challenge:[/]
-{level_data['challenge']}
+[{COLORS["warning"]}]Challenge:[/]
+{level_data["challenge"]}
 """,
-        border_style=COLORS['primary'],
-        box=box.DOUBLE
+        border_style=COLORS["primary"],
+        box=box.DOUBLE,
     )
     console.print(panel)
 
@@ -1490,15 +1486,15 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
         try:
             line = Prompt.ask(f"[{COLORS['hacker']}]>>>")
 
-            if line.lower() == 'done':
+            if line.lower() == "done":
                 break
-            elif line.lower() == 'hint':
+            elif line.lower() == "hint":
                 console.print(f"[{COLORS['warning']}]💡 Hint: {level_data['hint']}[/]")
                 continue
-            elif line.lower() == 'skip':
+            elif line.lower() == "skip":
                 console.print(f"[{COLORS['warning']}]⏭️  Skipping level (no points awarded)[/]")
                 return False
-            elif line.lower() == 'solution':
+            elif line.lower() == "solution":
                 console.print(f"[{COLORS['error']}]🚫 No cheating! Try using the hint instead.[/]")
                 continue
             else:
@@ -1535,7 +1531,7 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
 
         expected_output = io.StringIO()
         with redirect_stdout(expected_output):
-            exec(level_data['test_code'], {})
+            exec(level_data["test_code"], {})
         expected_result = expected_output.getvalue().strip()
 
         # Compare outputs
@@ -1545,9 +1541,9 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
             console.print(f"[{COLORS['success']}]+{level_data['points']} points![/]")
 
             # Update progress
-            if level_data['id'] not in progress.completed_levels:
-                progress.completed_levels.append(level_data['id'])
-                progress.total_points += level_data['points']
+            if level_data["id"] not in progress.completed_levels:
+                progress.completed_levels.append(level_data["id"])
+                progress.total_points += level_data["points"]
 
             # Check for achievements
             check_achievements(progress)
@@ -1596,9 +1592,9 @@ def main_menu():
         rank_name, _ = get_rank(progress.current_level)
         console.print(f"\n[{COLORS['hacker']}]Welcome back, {rank_name}![/]\n")
 
-        table = Table(box=box.ROUNDED, border_style=COLORS['secondary'])
-        table.add_column("Option", style=COLORS['primary'], no_wrap=True)
-        table.add_column("Description", style=COLORS['info'])
+        table = Table(box=box.ROUNDED, border_style=COLORS["secondary"])
+        table.add_column("Option", style=COLORS["primary"], no_wrap=True)
+        table.add_column("Description", style=COLORS["info"])
 
         table.add_row("1", "Continue Journey")
         table.add_row("2", "View Stats")
@@ -1628,7 +1624,9 @@ def main_menu():
                         else:
                             break
                     else:
-                        console.print(f"\n[{COLORS['hacker']}]🎉 CONGRATULATIONS! You've completed ALL 100 levels! 🎉[/]")
+                        console.print(
+                            f"\n[{COLORS['hacker']}]🎉 CONGRATULATIONS! You've completed ALL 100 levels! 🎉[/]"
+                        )
                         console.print(f"[{COLORS['success']}]You are now a LEGENDARY HACKER! 👑[/]")
                         console.print(f"[{COLORS['info']}]Total Points: {progress.total_points}[/]")
                         input("\nPress Enter to return to menu...")
@@ -1661,8 +1659,8 @@ def main_menu():
         elif choice == "4":
             console.clear()
             if progress.achievements:
-                table = Table(title="🏆 Your Achievements", box=box.DOUBLE_EDGE, border_style=COLORS['success'])
-                table.add_column("Achievement", style=COLORS['hacker'])
+                table = Table(title="🏆 Your Achievements", box=box.DOUBLE_EDGE, border_style=COLORS["success"])
+                table.add_column("Achievement", style=COLORS["hacker"])
                 for achievement in progress.achievements:
                     table.add_row(achievement)
                 console.print(table)
