@@ -726,8 +726,8 @@ LEVELS = [
         "description": "Generate random salts for password hashing.",
         "challenge": "Generate a random 16-byte salt using os.urandom().",
         "hint": "import os; os.urandom(16)",
-        "solution": "import os\nsalt = os.urandom(16)\nprint(salt.hex())",
-        "test_code": "import os\nsalt = os.urandom(16)\nprint(salt.hex())",
+        "solution": "import os\nsalt = os.urandom(16)\nprint(len(salt.hex()))",
+        "test_code": "import os\nsalt = os.urandom(16)\nprint(len(salt.hex()))",
         "explanation": "Salts prevent rainbow table attacks on password hashes!",
         "points": 235,
         "category": "crypto"
@@ -992,8 +992,8 @@ LEVELS = [
         "description": "Cryptographically secure randomness.",
         "challenge": "Use secrets module to generate secure random token.",
         "hint": "import secrets; secrets.token_hex()",
-        "solution": "import secrets\ntoken = secrets.token_hex(16)\nprint(token)",
-        "test_code": "import secrets\ntoken = secrets.token_hex(16)\nprint(token)",
+        "solution": "import secrets\ntoken = secrets.token_hex(16)\nprint(len(token))",
+        "test_code": "import secrets\ntoken = secrets.token_hex(16)\nprint(len(token))",
         "explanation": "Never use random module for security! Use secrets!",
         "points": 345,
         "category": "crypto"
