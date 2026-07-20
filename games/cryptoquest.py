@@ -638,7 +638,7 @@ LEVELS = [
         "description": "DH allows two parties to establish a shared secret over an insecure channel. Based on the hardness of the discrete logarithm problem.",
         "challenge": "Implement Diffie-Hellman key exchange:\nWrite dh_keygen(p: int, g: int) -> tuple (private, public) and dh_shared(private, other_public, p) -> int.\nUse os.urandom to generate a random private key in range [2, p-2].",
         "hint": "private = random integer; public = pow(g, private, p); shared = pow(other_public, private, p)",
-        "solution": "import os\n\ndef dh_keygen(p, g):\n    private = int.from_bytes(os.urandom(32), 'big') % (p - 2) + 2\n    public = pow(g, private, p)\n    return private, public\n\ndef dh_shared(private, other_public, p):\n    return pow(other_public, private, p)",
+        "solution": "import os\n\ndef dh_keygen(p, g):\n    private = int.from_bytes(os.urandom(32), 'big') % (p - 3) + 2\n    public = pow(g, private, p)\n    return private, public\n\ndef dh_shared(private, other_public, p):\n    return pow(other_public, private, p)",
         "test_code": "# RFC 3526 Group 14 (2048-bit) — use small prime for testing\np = 23\ng = 5\npriv_a, pub_a = dh_keygen(p, g)\npriv_b, pub_b = dh_keygen(p, g)\nshared_a = dh_shared(priv_a, pub_b, p)\nshared_b = dh_shared(priv_b, pub_a, p)\nassert shared_a == shared_b, 'Shared secrets must match'\nassert 1 < pub_a < p\nassert 1 < pub_b < p",
         "explanation": "DH security relies on: given g, p, g^a mod p, it's hard to find a (discrete log). ECDH uses elliptic curves instead of integers, achieving same security with much smaller keys.",
         "points": 30, "category": "asymmetric",
