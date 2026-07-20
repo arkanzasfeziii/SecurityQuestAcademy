@@ -5,7 +5,7 @@ from games.base import run_game
 GAME_NAME     = "CryptoQuest"
 GAME_SUBTITLE = "Cryptography Mastery — Classical to Post-Quantum"
 SAVE_FILE     = Path.home() / ".cryptoquest_save.json"
-ENGINE        = "python"
+ENGINE        = "python_assert"
 
 COLORS = {
     "primary":   "bright_magenta",

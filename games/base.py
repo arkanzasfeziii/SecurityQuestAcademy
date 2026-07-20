@@ -156,6 +156,18 @@ def eval_python_level(user_code: str, test_code: str) -> tuple[bool, str, str]:
     return user_out == expected_out, user_out, expected_out
 
 
+def eval_python_assertions(user_code: str, test_code: str) -> tuple[bool, str]:
+    """Run test_code (calls/asserts against names user_code defines) in a
+    namespace seeded by user_code, so both execute as one program."""
+    namespace: dict = {}
+    try:
+        exec(user_code, namespace)  # noqa: S102
+        exec(test_code, namespace)  # noqa: S102
+        return True, ""
+    except Exception as e:
+        return False, f"{type(e).__name__}: {e}"
+
+
 def execute_bash(command: str, expected_output: str | None = None) -> tuple[bool, str]:
     script_path = None
     try:
@@ -259,6 +271,51 @@ def play_python_level(level_data: dict, progress: PlayerProgress, colors: dict) 
         return False
 
 
+def play_python_assert_level(level_data: dict, progress: PlayerProgress, colors: dict) -> bool:
+    show_level_info(level_data, colors)
+    console.print(
+        f"\n[{colors['info']}]Define the function(s) described above. Type [bold]done[/] to submit, [bold]hint[/] for help, [bold]skip[/] to skip.[/]\n"
+    )
+    lines: list[str] = []
+    while True:
+        try:
+            line = Prompt.ask(f"[{colors.get('hacker', colors['primary'])}]>>>")
+        except (KeyboardInterrupt, EOFError):
+            console.print(f"\n[{colors['warning']}]Interrupted.[/]")
+            return False
+        cmd = line.strip().lower()
+        if cmd == "done":
+            break
+        if cmd == "hint":
+            console.print(f"[{colors['warning']}]💡 {level_data['hint']}[/]")
+            continue
+        if cmd == "skip":
+            console.print(f"[{colors['warning']}]Skipped (no points).[/]")
+            return False
+        if cmd == "solution":
+            console.print(f"[{colors['error']}]No cheating! Use the hint instead.[/]")
+            continue
+        lines.append(line)
+
+    user_code = "\n".join(lines)
+    if not user_code.strip():
+        console.print(f"[{colors['error']}]No code entered.[/]")
+        return False
+
+    console.print(f"\n[{colors['info']}]Your code:[/]")
+    console.print(Syntax(user_code, "python", theme="monokai", line_numbers=True))
+    console.print(f"\n[{colors['warning']}]Running tests…[/]")
+    time.sleep(0.4)
+
+    success, error = eval_python_assertions(user_code, level_data["test_code"])
+    if success:
+        _level_pass(level_data, progress, colors)
+        return True
+    else:
+        console.print(f"[{colors['error']}]❌ Tests failed: {error}[/]")
+        return False
+
+
 def play_cisco_level(level_data: dict, progress: PlayerProgress, colors: dict) -> bool:
     show_level_info(level_data, colors)
     console.print(
@@ -343,6 +400,7 @@ def _level_pass(level_data: dict, progress: PlayerProgress, colors: dict) -> Non
 
 ENGINE_MAP = {
     "python": play_python_level,
+    "python_assert": play_python_assert_level,
     "cisco": play_cisco_level,
     "bash": play_bash_level,
 }

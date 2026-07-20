@@ -15,6 +15,7 @@ from games import base
 from games.base import (
     PlayerProgress,
     check_achievements,
+    eval_python_assertions,
     eval_python_level,
     execute_bash,
     get_rank,
@@ -64,6 +65,42 @@ def test_eval_python_level_runtime_error():
     assert ok is False
     assert user_out.startswith("ERROR:")
     assert "division by zero" in user_out
+
+
+# ---------------------------------------------------------------------------
+# Python assertion engine (test_code calls functions user_code defines)
+# ---------------------------------------------------------------------------
+
+
+def test_eval_python_assertions_passes_when_definition_satisfies_test():
+    ok, error = eval_python_assertions(
+        "def add(a, b):\n    return a + b",
+        "assert add(2, 2) == 4",
+    )
+    assert ok is True
+    assert error == ""
+
+
+def test_eval_python_assertions_fails_on_assertion_error():
+    ok, error = eval_python_assertions(
+        "def add(a, b):\n    return a - b",
+        "assert add(2, 2) == 4",
+    )
+    assert ok is False
+    assert "AssertionError" in error
+
+
+def test_eval_python_assertions_fails_when_name_undefined():
+    ok, error = eval_python_assertions("", "assert add(2, 2) == 4")
+    assert ok is False
+    assert "NameError" in error
+    assert "add" in error
+
+
+def test_eval_python_assertions_fails_on_user_syntax_error():
+    ok, error = eval_python_assertions("def add(a, b)\n    return a + b", "assert add(2, 2) == 4")
+    assert ok is False
+    assert "SyntaxError" in error
 
 
 # ---------------------------------------------------------------------------

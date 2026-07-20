@@ -5,7 +5,7 @@ from games.base import run_game
 GAME_NAME     = "WebHackQuest"
 GAME_SUBTITLE = "Web Application Security & Penetration Testing Mastery"
 SAVE_FILE     = Path.home() / ".webhackquest_save.json"
-ENGINE        = "python"
+ENGINE        = "python_assert"
 
 COLORS = {
     "primary":   "bright_green",

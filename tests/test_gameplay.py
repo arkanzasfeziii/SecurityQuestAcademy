@@ -12,6 +12,7 @@ from games.base import (
     _level_pass,
     play_bash_level,
     play_cisco_level,
+    play_python_assert_level,
     play_python_level,
 )
 
@@ -109,6 +110,63 @@ def test_play_python_level_solution_request_does_not_submit(monkeypatch):
     _answers(monkeypatch, "solution", "print(2 + 2)", "done")
     progress = PlayerProgress()
     assert play_python_level(PY_LEVEL, progress, COLORS) is True
+
+
+# ---------------------------------------------------------------------------
+# play_python_assert_level
+# ---------------------------------------------------------------------------
+
+ASSERT_LEVEL = {
+    "id": 4, "title": "Add", "category": "basics", "points": 10,
+    "description": "d", "challenge": "c", "hint": "def add(a, b): return a + b",
+    "explanation": "e", "test_code": "assert add(2, 2) == 4",
+}
+
+
+def test_play_python_assert_level_success(monkeypatch):
+    _answers(monkeypatch, "def add(a, b):", "    return a + b", "done")
+    progress = PlayerProgress()
+    assert play_python_assert_level(ASSERT_LEVEL, progress, COLORS) is True
+    assert 4 in progress.completed_levels
+    assert progress.total_points == 10
+
+
+def test_play_python_assert_level_hint_then_solve(monkeypatch):
+    _answers(monkeypatch, "hint", "def add(a, b):", "    return a + b", "done")
+    progress = PlayerProgress()
+    assert play_python_assert_level(ASSERT_LEVEL, progress, COLORS) is True
+
+
+def test_play_python_assert_level_skip(monkeypatch):
+    _answers(monkeypatch, "skip")
+    progress = PlayerProgress()
+    assert play_python_assert_level(ASSERT_LEVEL, progress, COLORS) is False
+    assert progress.completed_levels == []
+
+
+def test_play_python_assert_level_no_code_entered(monkeypatch):
+    _answers(monkeypatch, "done")
+    progress = PlayerProgress()
+    assert play_python_assert_level(ASSERT_LEVEL, progress, COLORS) is False
+
+
+def test_play_python_assert_level_wrong_definition(monkeypatch):
+    _answers(monkeypatch, "def add(a, b):", "    return a - b", "done")
+    progress = PlayerProgress()
+    assert play_python_assert_level(ASSERT_LEVEL, progress, COLORS) is False
+    assert progress.completed_levels == []
+
+
+def test_play_python_assert_level_solution_request_does_not_submit(monkeypatch):
+    _answers(monkeypatch, "solution", "def add(a, b):", "    return a + b", "done")
+    progress = PlayerProgress()
+    assert play_python_assert_level(ASSERT_LEVEL, progress, COLORS) is True
+
+
+def test_play_python_assert_level_interrupted(monkeypatch):
+    _raise_interrupt(monkeypatch)
+    progress = PlayerProgress()
+    assert play_python_assert_level(ASSERT_LEVEL, progress, COLORS) is False
 
 
 # ---------------------------------------------------------------------------

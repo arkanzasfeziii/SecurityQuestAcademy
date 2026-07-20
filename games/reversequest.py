@@ -5,7 +5,7 @@ from games.base import run_game
 GAME_NAME     = "ReverseQuest"
 GAME_SUBTITLE = "Reverse Engineering & Binary Analysis Mastery"
 SAVE_FILE     = Path.home() / ".reversequest_save.json"
-ENGINE        = "python"
+ENGINE        = "python_assert"
 
 COLORS = {
     "primary":   "bright_red",
