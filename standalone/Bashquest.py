@@ -988,7 +988,7 @@ LEVELS = [
         "challenge": "Compare outputs: diff <(echo 'a') <(echo 'b')",
         "hint": "<(command) treats output as file",
         "solution": "diff <(echo 'a') <(echo 'b')",
-        "expected_output": None,
+        "expected_output": "1c1\n< a\n---\n> b",
         "check_command": True,
         "explanation": "<() process substitution treats command output as file. Very powerful!",
         "points": 330,
@@ -1073,9 +1073,9 @@ LEVELS = [
         "id": 80,
         "title": "Error Handling",
         "description": "Robust error management.",
-        "challenge": "Error function: err() { echo \"ERROR: $*\" >&2; exit 1; }; err 'test' || true",
-        "hint": ">&2 sends to stderr, exit 1 for errors",
-        "solution": "err() { echo \"ERROR: $*\" >&2; exit 1; }; err 'test' || true",
+        "challenge": "Error function: err() { echo \"ERROR: $*\" >&2; return 1; }; err 'test' || true",
+        "hint": ">&2 sends to stderr, return 1 for errors",
+        "solution": "err() { echo \"ERROR: $*\" >&2; return 1; }; err 'test' || true",
         "expected_output": None,
         "check_command": True,
         "explanation": "Send errors to stderr (>&2), exit with non-zero for failures.",
@@ -1286,7 +1286,7 @@ LEVELS = [
         "description": "Create systemd unit files.",
         "challenge": "Know systemd unit structure: [Unit], [Service], [Install] sections",
         "hint": "systemd uses INI-style config",
-        "solution": "echo '[Unit]\\n[Service]\\n[Install]'",
+        "solution": "echo -e '[Unit]\\n[Service]\\n[Install]'",
         "expected_output": "[Unit]\n[Service]\n[Install]",
         "explanation": "systemd services have Unit, Service, Install sections. Modern Linux init!",
         "points": 450,
@@ -1320,13 +1320,12 @@ LEVELS = [
         "id": 100,
         "title": "The Grand Challenge",
         "description": "Complete bash automation script.",
-        "challenge": "Write a script that: 1) Takes filename as arg, 2) Checks if exists, 3) Backs it up with timestamp, 4) Logs action",
+        "challenge": "Write a script that: 1) Sets a filename, 2) Checks if it exists (creating it if not), 3) Backs it up with timestamp, 4) Logs action",
         "hint": "Combine everything you've learned!",
         "solution": """#!/bin/bash
 set -euo pipefail
-FILE=${1:-}
-[[ -z "$FILE" ]] && { echo "Usage: $0 filename" >&2; exit 1; }
-[[ ! -f "$FILE" ]] && { echo "File not found!" >&2; exit 1; }
+FILE="grand_challenge_demo.txt"
+[[ ! -f "$FILE" ]] && echo "demo data" > "$FILE"
 BACKUP="${FILE}.$(date +%Y%m%d_%H%M%S).bak"
 cp "$FILE" "$BACKUP"
 echo "[$(date)] Backed up $FILE to $BACKUP"
