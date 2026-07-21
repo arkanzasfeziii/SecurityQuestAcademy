@@ -1491,9 +1491,11 @@ def execute_bash_command(command: str, expected_output: str | None = None) -> tu
     """
     Execute a bash command and return success status and output.
     """
+    script_path = None
     try:
-        # Create a temporary script file
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.sh', delete=False) as f:
+        # Create a temporary script file (force LF endings — on Windows,
+        # text-mode writes translate \n to \r\n, which corrupts the script)
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.sh', delete=False, newline='\n') as f:
             f.write("#!/bin/bash\n")
             f.write("set +e\n")  # Don't exit on errors for testing
             f.write(command + "\n")
@@ -1510,9 +1512,6 @@ def execute_bash_command(command: str, expected_output: str | None = None) -> tu
             timeout=5
         )
 
-        # Cleanup
-        os.unlink(script_path)
-
         output = result.stdout.strip()
 
         # If we have expected output, check it
@@ -1526,13 +1525,12 @@ def execute_bash_command(command: str, expected_output: str | None = None) -> tu
             return (result.returncode == 0, output)
 
     except subprocess.TimeoutExpired:
-        if script_path and os.path.exists(script_path):
-            os.unlink(script_path)
         return (False, "Command timed out (>5 seconds)")
     except Exception as e:
+        return (False, f"Error: {str(e)}")
+    finally:
         if script_path and os.path.exists(script_path):
             os.unlink(script_path)
-        return (False, f"Error: {str(e)}")
 
 
 def play_level(level_data: dict, progress: PlayerProgress) -> bool:
@@ -1687,11 +1685,15 @@ def main_menu():
 
         elif choice == "3":
             max_level = max(progress.completed_levels) + 1 if progress.completed_levels else 1
-            level_num = int(Prompt.ask(f"Jump to level (1-{min(max_level, 100)})"))
-            if 1 <= level_num <= min(max_level, 100):
-                progress.current_level = level_num
-                save_progress(progress)
-            else:
+            try:
+                level_num = int(Prompt.ask(f"Jump to level (1-{min(max_level, 100)})"))
+                if 1 <= level_num <= min(max_level, 100):
+                    progress.current_level = level_num
+                    save_progress(progress)
+                else:
+                    console.print(f"[{COLORS['error']}]Invalid level number![/]")
+                    time.sleep(2)
+            except ValueError:
                 console.print(f"[{COLORS['error']}]Invalid level number![/]")
                 time.sleep(2)
 
