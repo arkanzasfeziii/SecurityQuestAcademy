@@ -281,7 +281,7 @@ LEVELS = [
         "challenge": "Get help for the dir command using /?.",
         "hint": "command /?",
         "solution": "dir /?",
-        "expected_output": None,
+        "expected_output": "Displays a list of files and subdirectories in a directory.",
         "shell": "cmd",
         "check_command": True,
         "explanation": "/? shows command help. Use 'help command' or 'command /?' for documentation.",
@@ -1807,11 +1807,15 @@ def main_menu():
 
         elif choice == "3":
             max_level = max(progress.completed_levels) + 1 if progress.completed_levels else 1
-            level_num = int(Prompt.ask(f"Jump to level (1-{min(max_level, 100)})"))
-            if 1 <= level_num <= min(max_level, 100):
-                progress.current_level = level_num
-                save_progress(progress)
-            else:
+            try:
+                level_num = int(Prompt.ask(f"Jump to level (1-{min(max_level, 100)})"))
+                if 1 <= level_num <= min(max_level, 100):
+                    progress.current_level = level_num
+                    save_progress(progress)
+                else:
+                    console.print(f"[{COLORS['error']}]Invalid level number![/]")
+                    time.sleep(2)
+            except ValueError:
                 console.print(f"[{COLORS['error']}]Invalid level number![/]")
                 time.sleep(2)
 
