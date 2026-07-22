@@ -10,8 +10,16 @@ from games import cryptoquest, reversequest, webhackquest
 from games.base import eval_python_assertions
 
 REQUIRED_KEYS = {
-    "id", "title", "description", "challenge", "hint",
-    "solution", "test_code", "explanation", "points", "category",
+    "id",
+    "title",
+    "description",
+    "challenge",
+    "hint",
+    "solution",
+    "test_code",
+    "explanation",
+    "points",
+    "category",
 }
 
 QUESTS = [

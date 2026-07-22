@@ -90,7 +90,7 @@ LEVELS = [
         "expected_output": "Hello, BashQuest!",
         "explanation": "echo displays text to the terminal. It's the most basic output command!",
         "points": 10,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 2,
@@ -103,7 +103,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "pwd shows your current location in the directory tree.",
         "points": 10,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 3,
@@ -116,7 +116,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ls shows files and directories. Use ls -l for detailed view, ls -a to show hidden files.",
         "points": 15,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 4,
@@ -129,7 +129,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "mkdir creates new directories. Use -p to create parent directories too.",
         "points": 15,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 5,
@@ -142,7 +142,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "cd changes your current directory. Use 'cd ..' to go up one level, 'cd ~' for home.",
         "points": 20,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 6,
@@ -155,7 +155,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "touch creates new empty files or updates timestamps of existing files.",
         "points": 20,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 7,
@@ -168,7 +168,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "> redirects output to a file (overwrites). Use >> to append instead.",
         "points": 25,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 8,
@@ -180,7 +180,7 @@ LEVELS = [
         "expected_output": "Hello Bash",
         "explanation": "cat displays file contents. For large files, use less or more for paging.",
         "points": 25,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 9,
@@ -193,7 +193,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "cp copies files. Use -r for directories, -i to prompt before overwriting.",
         "points": 30,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 10,
@@ -206,7 +206,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "mv moves or renames files. It can also move files between directories.",
         "points": 30,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 11,
@@ -219,7 +219,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "rm deletes files permanently! Use -i for confirmation, -r for directories.",
         "points": 35,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 12,
@@ -231,7 +231,7 @@ LEVELS = [
         "expected_output": "1 output.txt",
         "explanation": "wc counts lines (-l), words (-w), and characters (-c) in files.",
         "points": 35,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 13,
@@ -244,7 +244,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "which shows the full path of commands. Useful for checking what you'll execute.",
         "points": 40,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 14,
@@ -257,7 +257,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "man shows manual pages. Press 'q' to quit. Use 'man man' to learn about man!",
         "points": 40,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 15,
@@ -270,7 +270,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "du shows disk usage. Use -h for human-readable sizes, -s for summary.",
         "points": 45,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 16,
@@ -283,7 +283,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "df shows free disk space on filesystems. Essential for monitoring.",
         "points": 45,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 17,
@@ -296,7 +296,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "head shows the first lines of a file. Default is 10 lines.",
         "points": 50,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 18,
@@ -309,7 +309,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "tail shows the last lines. Use -f to follow files (great for logs!).",
         "points": 50,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 19,
@@ -322,7 +322,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "grep searches for patterns. Use -i for case-insensitive, -r for recursive.",
         "points": 55,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 20,
@@ -335,9 +335,8 @@ LEVELS = [
         "check_command": True,
         "explanation": "Pipes (|) send output of one command to another. Very powerful!",
         "points": 55,
-        "category": "basics"
+        "category": "basics",
     },
-
     # === INTERMEDIATE TIER (21-50): Scripting Basics ===
     {
         "id": 21,
@@ -349,7 +348,7 @@ LEVELS = [
         "expected_output": "Hacker",
         "explanation": "Variables store values. Access with $. No spaces around =!",
         "points": 60,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 22,
@@ -362,7 +361,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "$() captures command output. Backticks `` also work but $() is preferred.",
         "points": 65,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 23,
@@ -374,7 +373,7 @@ LEVELS = [
         "expected_output": "Greater",
         "explanation": "if tests conditions. -gt is greater than, -eq equals, -lt less than.",
         "points": 70,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 24,
@@ -386,7 +385,7 @@ LEVELS = [
         "expected_output": "1\n2\n3",
         "explanation": "for loops iterate over lists or ranges. Very useful for automation!",
         "points": 75,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 25,
@@ -398,7 +397,7 @@ LEVELS = [
         "expected_output": "1\n2\n3",
         "explanation": "while loops continue while condition is true. Great for monitoring!",
         "points": 80,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 26,
@@ -410,7 +409,7 @@ LEVELS = [
         "expected_output": "15",
         "explanation": "$(()) performs arithmetic. Supports +, -, *, /, %, **.",
         "points": 85,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 27,
@@ -422,7 +421,7 @@ LEVELS = [
         "expected_output": "5",
         "explanation": "${#var} returns string length. Useful for validation!",
         "points": 90,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 28,
@@ -434,7 +433,7 @@ LEVELS = [
         "expected_output": "hello bash",
         "explanation": "${var/old/new} replaces first occurrence. Use // for all occurrences.",
         "points": 95,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 29,
@@ -446,7 +445,7 @@ LEVELS = [
         "expected_output": "banana",
         "explanation": "Arrays store multiple values. Index starts at 0!",
         "points": 100,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 30,
@@ -458,7 +457,7 @@ LEVELS = [
         "expected_output": "5",
         "explanation": "${#array[@]} returns number of elements. [@] means all elements.",
         "points": 110,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 31,
@@ -470,7 +469,7 @@ LEVELS = [
         "expected_output": "Hello!",
         "explanation": "Functions encapsulate code. Define once, use many times!",
         "points": 120,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 32,
@@ -482,7 +481,7 @@ LEVELS = [
         "expected_output": "Hi",
         "explanation": "$1 is first argument, $2 second, etc. $@ is all arguments.",
         "points": 125,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 33,
@@ -494,7 +493,7 @@ LEVELS = [
         "expected_output": "0",
         "explanation": "$? is 0 for success, non-zero for failure. Essential for error handling!",
         "points": 130,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 34,
@@ -506,7 +505,7 @@ LEVELS = [
         "expected_output": "First\nSecond",
         "explanation": "&& executes second command only if first succeeds.",
         "points": 135,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 35,
@@ -518,7 +517,7 @@ LEVELS = [
         "expected_output": "Failed",
         "explanation": "|| executes second command only if first fails. Great for error messages!",
         "points": 140,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 36,
@@ -530,7 +529,7 @@ LEVELS = [
         "expected_output": "Two",
         "explanation": "case is like switch in other languages. Great for menu systems!",
         "points": 145,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 37,
@@ -542,7 +541,7 @@ LEVELS = [
         "expected_output": "test",
         "explanation": "read gets user input. Use -p for prompt, -s for silent (passwords).",
         "points": 150,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 38,
@@ -554,7 +553,7 @@ LEVELS = [
         "expected_output": "Line 1\nLine 2",
         "explanation": "Here documents provide multi-line input. EOF is common delimiter.",
         "points": 155,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 39,
@@ -567,7 +566,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "& runs commands in background. Use 'jobs' to list, 'fg' to foreground.",
         "points": 160,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 40,
@@ -580,7 +579,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "$$ is current shell's PID. $! is last background process PID.",
         "points": 165,
-        "category": "scripting"
+        "category": "scripting",
     },
     {
         "id": 41,
@@ -593,7 +592,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "find searches filesystem. Very powerful with -type, -size, -mtime options.",
         "points": 170,
-        "category": "files"
+        "category": "files",
     },
     {
         "id": 42,
@@ -606,7 +605,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "chmod changes permissions. +x adds execute, 755 is common for scripts.",
         "points": 175,
-        "category": "files"
+        "category": "files",
     },
     {
         "id": 43,
@@ -618,7 +617,7 @@ LEVELS = [
         "expected_output": "chown user:group file",
         "explanation": "chown changes file owner. Usually requires root/sudo privileges.",
         "points": 180,
-        "category": "files"
+        "category": "files",
     },
     {
         "id": 44,
@@ -631,7 +630,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ln -s creates symbolic links (shortcuts). Without -s creates hard links.",
         "points": 185,
-        "category": "files"
+        "category": "files",
     },
     {
         "id": 45,
@@ -644,7 +643,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "tar archives files. -c create, -z compress, -f filename, -x extract.",
         "points": 190,
-        "category": "files"
+        "category": "files",
     },
     {
         "id": 46,
@@ -657,7 +656,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "tar -xzf extracts compressed archives. -x extract, -z gunzip.",
         "points": 195,
-        "category": "files"
+        "category": "files",
     },
     {
         "id": 47,
@@ -669,7 +668,7 @@ LEVELS = [
         "expected_output": "1\n2\n3",
         "explanation": "sort orders lines. Use -r for reverse, -n for numeric sort.",
         "points": 200,
-        "category": "text"
+        "category": "text",
     },
     {
         "id": 48,
@@ -681,7 +680,7 @@ LEVELS = [
         "expected_output": "a\nb",
         "explanation": "uniq removes adjacent duplicates. Always sort first! Use -c to count.",
         "points": 205,
-        "category": "text"
+        "category": "text",
     },
     {
         "id": 49,
@@ -693,7 +692,7 @@ LEVELS = [
         "expected_output": "a",
         "explanation": "cut extracts columns. -d sets delimiter, -f selects fields.",
         "points": 210,
-        "category": "text"
+        "category": "text",
     },
     {
         "id": 50,
@@ -705,9 +704,8 @@ LEVELS = [
         "expected_output": "b",
         "explanation": "awk is powerful for text processing. $1, $2 are columns (space-separated).",
         "points": 215,
-        "category": "text"
+        "category": "text",
     },
-
     # === ADVANCED TIER (51-75): System Administration ===
     {
         "id": 51,
@@ -719,7 +717,7 @@ LEVELS = [
         "expected_output": "hello bash",
         "explanation": "sed edits streams. s/old/new/ substitutes. Use g for global replacement.",
         "points": 220,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 52,
@@ -732,7 +730,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ps shows processes. aux shows all users' processes with details.",
         "points": 225,
-        "category": "system"
+        "category": "system",
     },
     {
         "id": 53,
@@ -744,7 +742,7 @@ LEVELS = [
         "expected_output": "kill PID",
         "explanation": "kill sends signals to processes. Default is SIGTERM, -9 is SIGKILL (force).",
         "points": 230,
-        "category": "system"
+        "category": "system",
     },
     {
         "id": 54,
@@ -756,7 +754,7 @@ LEVELS = [
         "expected_output": "top",
         "explanation": "top shows live system resources. Press 'q' to quit. htop is enhanced version.",
         "points": 235,
-        "category": "system"
+        "category": "system",
     },
     {
         "id": 55,
@@ -769,7 +767,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "env shows environment variables. export sets them for child processes.",
         "points": 240,
-        "category": "system"
+        "category": "system",
     },
     {
         "id": 56,
@@ -782,7 +780,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "PATH lists directories searched for commands. Add dirs with export PATH=$PATH:/new/dir",
         "points": 245,
-        "category": "system"
+        "category": "system",
     },
     {
         "id": 57,
@@ -794,7 +792,7 @@ LEVELS = [
         "expected_output": "0 * * * * command",
         "explanation": "crontab schedules tasks. Format: min hour day month weekday command.",
         "points": 250,
-        "category": "automation"
+        "category": "automation",
     },
     {
         "id": 58,
@@ -807,7 +805,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ip addr shows network interfaces. ifconfig is older but still common.",
         "points": 255,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 59,
@@ -820,7 +818,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ping tests connectivity. -c limits count. Sends ICMP echo requests.",
         "points": 260,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 60,
@@ -832,7 +830,7 @@ LEVELS = [
         "expected_output": "wget URL",
         "explanation": "wget downloads files. curl can too with -O. Both are essential tools.",
         "points": 265,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 61,
@@ -844,7 +842,7 @@ LEVELS = [
         "expected_output": "ssh user@host",
         "explanation": "ssh connects securely to remote systems. Essential for remote admin.",
         "points": 270,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 62,
@@ -856,7 +854,7 @@ LEVELS = [
         "expected_output": "scp file user@host:path",
         "explanation": "scp copies files over SSH. Use -r for directories.",
         "points": 275,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 63,
@@ -868,7 +866,7 @@ LEVELS = [
         "expected_output": "netstat -tuln",
         "explanation": "netstat shows network connections. -t TCP, -u UDP, -l listening, -n numeric.",
         "points": 280,
-        "category": "network"
+        "category": "network",
     },
     {
         "id": 64,
@@ -880,7 +878,7 @@ LEVELS = [
         "expected_output": "tail /var/log/syslog",
         "explanation": "System logs in /var/log/. journalctl for systemd. Essential for troubleshooting!",
         "points": 285,
-        "category": "system"
+        "category": "system",
     },
     {
         "id": 65,
@@ -892,7 +890,7 @@ LEVELS = [
         "expected_output": "fsck /dev/sdX",
         "explanation": "fsck checks and repairs filesystems. Must be unmounted! Use carefully.",
         "points": 290,
-        "category": "system"
+        "category": "system",
     },
     {
         "id": 66,
@@ -904,7 +902,7 @@ LEVELS = [
         "expected_output": "mount /dev/sdX /mnt",
         "explanation": "mount attaches filesystems. umount detaches. /etc/fstab for permanent mounts.",
         "points": 295,
-        "category": "system"
+        "category": "system",
     },
     {
         "id": 67,
@@ -916,7 +914,7 @@ LEVELS = [
         "expected_output": "test@example.com",
         "explanation": "Regex matches patterns. -E enables extended regex. Essential for text processing!",
         "points": 300,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 68,
@@ -928,7 +926,7 @@ LEVELS = [
         "expected_output": "a b c",
         "explanation": "xargs builds command lines from input. Great with find!",
         "points": 305,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 69,
@@ -940,7 +938,7 @@ LEVELS = [
         "expected_output": "cmd1 & cmd2 & wait",
         "explanation": "& backgrounds tasks. wait waits for all. GNU parallel is more advanced.",
         "points": 310,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 70,
@@ -953,7 +951,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "trap catches signals. Use for cleanup on script exit or interruption.",
         "points": 315,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 71,
@@ -966,7 +964,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "set -e exits on errors. set -u errors on undefined vars. Use for robust scripts!",
         "points": 320,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 72,
@@ -979,7 +977,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "set -x shows commands being executed. Essential for debugging!",
         "points": 325,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 73,
@@ -992,7 +990,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "<() process substitution treats command output as file. Very powerful!",
         "points": 330,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 74,
@@ -1004,7 +1002,7 @@ LEVELS = [
         "expected_output": "1 2 3 4 5",
         "explanation": "Brace expansion generates sequences. {1..10}, {a..z}, {file1,file2}.",
         "points": 335,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 75,
@@ -1016,9 +1014,8 @@ LEVELS = [
         "expected_output": "value",
         "explanation": "declare -A creates associative arrays (hashes/dicts). Bash 4+ only.",
         "points": 340,
-        "category": "advanced"
+        "category": "advanced",
     },
-
     # === EXPERT TIER (76-100): Advanced Scripting & Automation ===
     {
         "id": 76,
@@ -1030,7 +1027,7 @@ LEVELS = [
         "expected_output": "#!/bin/bash\nset -euo pipefail",
         "explanation": "#!/bin/bash (shebang) + set -euo pipefail ensures robust scripts.",
         "points": 345,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 77,
@@ -1039,10 +1036,10 @@ LEVELS = [
         "challenge": "Know getopts parses options: getopts 'a:b' opt",
         "hint": "getopts optstring variable",
         "solution": "echo 'while getopts \"a:b\" opt; do case $opt in a) ;; esac; done'",
-        "expected_output": "while getopts \"a:b\" opt; do case $opt in a) ;; esac; done",
+        "expected_output": 'while getopts "a:b" opt; do case $opt in a) ;; esac; done',
         "explanation": "getopts parses -a value -b style options. Essential for professional scripts.",
         "points": 350,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 78,
@@ -1055,7 +1052,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Logging functions add timestamps and structure. Essential for production scripts!",
         "points": 355,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 79,
@@ -1067,7 +1064,7 @@ LEVELS = [
         "expected_output": "mkdir /tmp/script.lock 2>/dev/null",
         "explanation": "mkdir is atomic, perfect for lock files. Prevents script race conditions.",
         "points": 360,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 80,
@@ -1080,7 +1077,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Send errors to stderr (>&2), exit with non-zero for failures.",
         "points": 365,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 81,
@@ -1092,7 +1089,7 @@ LEVELS = [
         "expected_output": "value",
         "explanation": "source (or .) loads config files. Keep configs separate from code!",
         "points": 370,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 82,
@@ -1105,7 +1102,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "mktemp creates unique temp files safely. Always clean up with trap!",
         "points": 375,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 83,
@@ -1118,7 +1115,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "trap EXIT ensures cleanup happens even on errors. Critical for production!",
         "points": 380,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 84,
@@ -1130,7 +1127,7 @@ LEVELS = [
         "expected_output": "Timed out",
         "explanation": "timeout prevents commands from hanging. Essential for automation!",
         "points": 385,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 85,
@@ -1142,7 +1139,7 @@ LEVELS = [
         "expected_output": "watch -n 1 date",
         "explanation": "watch runs command repeatedly. Great for monitoring!",
         "points": 390,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 86,
@@ -1155,19 +1152,19 @@ LEVELS = [
         "check_command": True,
         "explanation": "$BASH_VERSION shows bash version. Check for required features!",
         "points": 395,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 87,
         "title": "Conditional Compilation",
         "description": "OS-specific code in scripts.",
-        "challenge": "Detect OS: if [[ \"$OSTYPE\" == \"linux-gnu\"* ]]; then echo 'Linux'; fi",
+        "challenge": 'Detect OS: if [[ "$OSTYPE" == "linux-gnu"* ]]; then echo \'Linux\'; fi',
         "hint": "$OSTYPE variable",
-        "solution": "if [[ \"$OSTYPE\" == \"linux-gnu\"* ]]; then echo 'Linux'; fi",
+        "solution": 'if [[ "$OSTYPE" == "linux-gnu"* ]]; then echo \'Linux\'; fi',
         "expected_output": "Linux",
         "explanation": "$OSTYPE shows OS. Write portable scripts checking this!",
         "points": 400,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 88,
@@ -1180,7 +1177,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "time measures execution. Use for performance optimization!",
         "points": 405,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 89,
@@ -1193,7 +1190,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Timestamped backups prevent overwrites. Essential pattern!",
         "points": 410,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 90,
@@ -1205,7 +1202,7 @@ LEVELS = [
         "expected_output": "Valid",
         "explanation": "Always validate input! =~ does regex matching in [[ ]].",
         "points": 415,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 91,
@@ -1217,7 +1214,7 @@ LEVELS = [
         "expected_output": "Done",
         "explanation": "Retry logic handles transient failures. Essential for reliability!",
         "points": 420,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 92,
@@ -1230,19 +1227,19 @@ LEVELS = [
         "check_command": True,
         "explanation": "ANSI codes add color. \\033[31m red, \\033[32m green, \\033[0m reset.",
         "points": 425,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 93,
         "title": "Progress Bar",
         "description": "Show progress in scripts.",
-        "challenge": "Simple progress: for i in {1..5}; do echo -ne \"#\"; sleep 0.1; done; echo",
+        "challenge": 'Simple progress: for i in {1..5}; do echo -ne "#"; sleep 0.1; done; echo',
         "hint": "echo -ne for same line",
-        "solution": "for i in {1..5}; do echo -ne \"#\"; sleep 0.1; done; echo",
+        "solution": 'for i in {1..5}; do echo -ne "#"; sleep 0.1; done; echo',
         "expected_output": "#####",
         "explanation": "echo -ne stays on same line. Build progress bars for long operations!",
         "points": 430,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 94,
@@ -1254,7 +1251,7 @@ LEVELS = [
         "expected_output": "select opt in A B; do break; done",
         "explanation": "select creates interactive menus. Great for user-friendly scripts!",
         "points": 435,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 95,
@@ -1266,7 +1263,7 @@ LEVELS = [
         "expected_output": "Hello World",
         "explanation": "Heredocs expand variables. Use << 'EOF' to prevent expansion.",
         "points": 440,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 96,
@@ -1278,7 +1275,7 @@ LEVELS = [
         "expected_output": "set -euo pipefail, quote vars, check exit codes",
         "explanation": "Best practices: set -euo pipefail, quote variables, check exit codes, validate input!",
         "points": 445,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 97,
@@ -1290,7 +1287,7 @@ LEVELS = [
         "expected_output": "[Unit]\n[Service]\n[Install]",
         "explanation": "systemd services have Unit, Service, Install sections. Modern Linux init!",
         "points": 450,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 98,
@@ -1299,10 +1296,10 @@ LEVELS = [
         "challenge": "Know ansible can run bash: echo 'ansible host -m shell -a \"command\"'",
         "hint": "Ansible shell module runs commands",
         "solution": "echo 'ansible host -m shell -a \"command\"'",
-        "expected_output": "ansible host -m shell -a \"command\"",
+        "expected_output": 'ansible host -m shell -a "command"',
         "explanation": "Ansible shell module runs bash commands. Combine bash and automation!",
         "points": 455,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 99,
@@ -1314,7 +1311,7 @@ LEVELS = [
         "expected_output": "docker run -it ubuntu bash",
         "explanation": "Docker containers often use bash. Essential for modern DevOps!",
         "points": 460,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 100,
@@ -1334,7 +1331,7 @@ echo "[$(date)] Backed up $FILE to $BACKUP"
         "check_command": True,
         "explanation": "You've mastered Bash! You combined safety flags, validation, functions, timestamps, and logging. You're a Bash Grandmaster! 🏆",
         "points": 500,
-        "category": "final"
+        "category": "final",
     },
 ]
 
@@ -1375,7 +1372,7 @@ class PlayerProgress:
 def save_progress(progress: PlayerProgress):
     """Save player progress to file."""
     try:
-        with open(SAVE_FILE, 'w') as f:
+        with open(SAVE_FILE, "w") as f:
             json.dump(progress.to_dict(), f, indent=2)
     except Exception as e:
         console.print(f"[{COLORS['error']}]Error saving progress: {e}[/]")
@@ -1429,9 +1426,9 @@ def show_stats(progress: PlayerProgress):
     """Display player statistics."""
     rank_name, rank_desc = get_rank(progress.current_level)
 
-    table = Table(title="Your Stats", box=box.DOUBLE_EDGE, border_style=COLORS['primary'])
-    table.add_column("Stat", style=COLORS['secondary'], no_wrap=True)
-    table.add_column("Value", style=COLORS['terminal'])
+    table = Table(title="Your Stats", box=box.DOUBLE_EDGE, border_style=COLORS["primary"])
+    table.add_column("Stat", style=COLORS["secondary"], no_wrap=True)
+    table.add_column("Value", style=COLORS["terminal"])
 
     table.add_row("Current Level", f"{progress.current_level}/100")
     table.add_row("Completed Levels", str(len(progress.completed_levels)))
@@ -1446,19 +1443,19 @@ def show_stats(progress: PlayerProgress):
 def show_level_info(level_data: dict):
     """Display information about a level."""
     panel = Panel(
-        f"""[{COLORS['terminal']}]LEVEL {level_data['id']}: {level_data['title'].upper()}[/]
+        f"""[{COLORS["terminal"]}]LEVEL {level_data["id"]}: {level_data["title"].upper()}[/]
 
-[{COLORS['info']}]Category:[/] [{COLORS['secondary']}]{level_data['category'].upper()}[/]
-[{COLORS['info']}]Points:[/] [{COLORS['success']}]{level_data['points']}[/]
+[{COLORS["info"]}]Category:[/] [{COLORS["secondary"]}]{level_data["category"].upper()}[/]
+[{COLORS["info"]}]Points:[/] [{COLORS["success"]}]{level_data["points"]}[/]
 
-[{COLORS['warning']}]Description:[/]
-{level_data['description']}
+[{COLORS["warning"]}]Description:[/]
+{level_data["description"]}
 
-[{COLORS['warning']}]Challenge:[/]
-{level_data['challenge']}
+[{COLORS["warning"]}]Challenge:[/]
+{level_data["challenge"]}
 """,
-        border_style=COLORS['primary'],
-        box=box.DOUBLE
+        border_style=COLORS["primary"],
+        box=box.DOUBLE,
     )
     console.print(panel)
 
@@ -1494,7 +1491,7 @@ def execute_bash_command(command: str, expected_output: str | None = None) -> tu
     try:
         # Create a temporary script file (force LF endings — on Windows,
         # text-mode writes translate \n to \r\n, which corrupts the script)
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.sh', delete=False, newline='\n') as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".sh", delete=False, newline="\n") as f:
             f.write("#!/bin/bash\n")
             f.write("set +e\n")  # Don't exit on errors for testing
             f.write(command + "\n")
@@ -1504,12 +1501,7 @@ def execute_bash_command(command: str, expected_output: str | None = None) -> tu
         os.chmod(script_path, 0o755)
 
         # Execute
-        result = subprocess.run(
-            ['bash', script_path],
-            capture_output=True,
-            text=True,
-            timeout=5
-        )
+        result = subprocess.run(["bash", script_path], capture_output=True, text=True, timeout=5)
 
         output = result.stdout.strip()
 
@@ -1541,20 +1533,22 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
     console.print()
 
     # Show hint option
-    console.print(f"[{COLORS['info']}]💡 Type 'hint' for a hint, 'skip' to skip (no points), or enter your bash command:[/]")
+    console.print(
+        f"[{COLORS['info']}]💡 Type 'hint' for a hint, 'skip' to skip (no points), or enter your bash command:[/]"
+    )
     console.print()
 
     while True:
         try:
             user_input = Prompt.ask(f"[{COLORS['terminal']}]bash$")
 
-            if user_input.lower() == 'hint':
+            if user_input.lower() == "hint":
                 console.print(f"[{COLORS['warning']}]💡 Hint: {level_data['hint']}[/]")
                 continue
-            elif user_input.lower() == 'skip':
+            elif user_input.lower() == "skip":
                 console.print(f"[{COLORS['warning']}]⏭️  Skipping level (no points awarded)[/]")
                 return False
-            elif user_input.lower() == 'solution':
+            elif user_input.lower() == "solution":
                 console.print(f"[{COLORS['error']}]🚫 No cheating! Try using the hint instead.[/]")
                 continue
             elif not user_input.strip():
@@ -1576,7 +1570,7 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
     console.print(f"[{COLORS['warning']}]Executing command...[/]")
     time.sleep(0.5)
 
-    success, output = execute_bash_command(user_input, level_data.get('expected_output'))
+    success, output = execute_bash_command(user_input, level_data.get("expected_output"))
 
     if success:
         console.print(f"[{COLORS['success']}]✅ CORRECT! Level completed![/]")
@@ -1586,9 +1580,9 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
         console.print(f"[{COLORS['success']}]+{level_data['points']} points![/]")
 
         # Update progress
-        if level_data['id'] not in progress.completed_levels:
-            progress.completed_levels.append(level_data['id'])
-            progress.total_points += level_data['points']
+        if level_data["id"] not in progress.completed_levels:
+            progress.completed_levels.append(level_data["id"])
+            progress.total_points += level_data["points"]
 
         # Check for achievements
         check_achievements(progress)
@@ -1598,7 +1592,7 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
         console.print(f"[{COLORS['error']}]❌ Not quite right. Try again![/]")
         if output:
             console.print(f"[{COLORS['info']}]Output:[/] {output}")
-        if level_data.get('expected_output'):
+        if level_data.get("expected_output"):
             console.print(f"[{COLORS['info']}]Expected:[/] {level_data['expected_output']}")
 
         if Confirm.ask(f"[{COLORS['warning']}]Try again?"):
@@ -1637,9 +1631,9 @@ def main_menu():
         rank_name, _ = get_rank(progress.current_level)
         console.print(f"\n[{COLORS['terminal']}]Welcome back, {rank_name}![/]\n")
 
-        table = Table(box=box.ROUNDED, border_style=COLORS['secondary'])
-        table.add_column("Option", style=COLORS['primary'], no_wrap=True)
-        table.add_column("Description", style=COLORS['info'])
+        table = Table(box=box.ROUNDED, border_style=COLORS["secondary"])
+        table.add_column("Option", style=COLORS["primary"], no_wrap=True)
+        table.add_column("Description", style=COLORS["info"])
 
         table.add_row("1", "Continue Journey")
         table.add_row("2", "View Stats")
@@ -1669,7 +1663,9 @@ def main_menu():
                         else:
                             break
                     else:
-                        console.print(f"\n[{COLORS['terminal']}]🎉 CONGRATULATIONS! You've completed ALL 100 levels! 🎉[/]")
+                        console.print(
+                            f"\n[{COLORS['terminal']}]🎉 CONGRATULATIONS! You've completed ALL 100 levels! 🎉[/]"
+                        )
                         console.print(f"[{COLORS['success']}]You are now a BASH GRANDMASTER! 🏆[/]")
                         console.print(f"[{COLORS['info']}]Total Points: {progress.total_points}[/]")
                         input("\nPress Enter to return to menu...")
@@ -1699,8 +1695,8 @@ def main_menu():
         elif choice == "4":
             console.clear()
             if progress.achievements:
-                table = Table(title="🏆 Your Achievements", box=box.DOUBLE_EDGE, border_style=COLORS['success'])
-                table.add_column("Achievement", style=COLORS['terminal'])
+                table = Table(title="🏆 Your Achievements", box=box.DOUBLE_EDGE, border_style=COLORS["success"])
+                table.add_column("Achievement", style=COLORS["terminal"])
                 for achievement in progress.achievements:
                     table.add_row(achievement)
                 console.print(table)

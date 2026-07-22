@@ -20,8 +20,16 @@ from standalone import Bashquest, Windowsquest
 requires_windows = pytest.mark.skipif(sys.platform != "win32", reason="cmd/PowerShell only exist on Windows")
 
 REQUIRED_KEYS_BASH = {
-    "id", "title", "description", "challenge", "hint",
-    "solution", "expected_output", "explanation", "points", "category",
+    "id",
+    "title",
+    "description",
+    "challenge",
+    "hint",
+    "solution",
+    "expected_output",
+    "explanation",
+    "points",
+    "category",
 }
 REQUIRED_KEYS_WINDOWS = REQUIRED_KEYS_BASH | {"shell"}
 
@@ -44,8 +52,11 @@ requires_bash = pytest.mark.skipif(not _bash_usable(), reason="no working bash i
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("mod,keys", [(Bashquest, REQUIRED_KEYS_BASH), (Windowsquest, REQUIRED_KEYS_WINDOWS)],
-                          ids=["bashquest", "windowsquest"])
+@pytest.mark.parametrize(
+    "mod,keys",
+    [(Bashquest, REQUIRED_KEYS_BASH), (Windowsquest, REQUIRED_KEYS_WINDOWS)],
+    ids=["bashquest", "windowsquest"],
+)
 def test_exactly_100_levels_with_required_fields(mod, keys):
     assert len(mod.LEVELS) == 100
     ids = [lvl["id"] for lvl in mod.LEVELS]

@@ -91,7 +91,7 @@ LEVELS = [
         "shell": "cmd",
         "explanation": "echo displays text. It's the most basic output command in CMD!",
         "points": 10,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 2,
@@ -105,7 +105,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "cd without arguments displays current directory. cd with path changes directory.",
         "points": 10,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 3,
@@ -119,7 +119,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "dir shows files and directories. Use dir /w for wide format, dir /p for paged.",
         "points": 15,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 4,
@@ -133,7 +133,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "mkdir or md creates new directories. Both commands work identically.",
         "points": 15,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 5,
@@ -147,7 +147,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "cd changes directory. Use 'cd ..' to go up one level, 'cd \\' for root.",
         "points": 20,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 6,
@@ -161,7 +161,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "type nul > creates empty files. In PowerShell, use New-Item.",
         "points": 20,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 7,
@@ -175,7 +175,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "> redirects output to a file (overwrites). Use >> to append.",
         "points": 25,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 8,
@@ -188,7 +188,7 @@ LEVELS = [
         "shell": "cmd",
         "explanation": "type displays file contents. Similar to cat in Linux.",
         "points": 25,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 9,
@@ -202,7 +202,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "copy duplicates files. Use xcopy for directories.",
         "points": 30,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 10,
@@ -216,7 +216,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ren or rename changes file names. Use move to relocate files.",
         "points": 30,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 11,
@@ -230,7 +230,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "del deletes files. Use /p for confirmation prompt. Be very careful!",
         "points": 35,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 12,
@@ -244,7 +244,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "cls clears the screen. Useful when console gets cluttered!",
         "points": 35,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 13,
@@ -258,7 +258,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "systeminfo shows OS version, hardware, network config, and more!",
         "points": 40,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 14,
@@ -272,7 +272,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ipconfig shows IP addresses. Use /all for detailed info, /release and /renew for DHCP.",
         "points": 40,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 15,
@@ -286,7 +286,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "/? shows command help. Use 'help command' or 'command /?' for documentation.",
         "points": 45,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 16,
@@ -300,7 +300,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ping tests connectivity. -n limits count. Useful for troubleshooting!",
         "points": 45,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 17,
@@ -314,7 +314,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "tree displays folder structure graphically. Use /f to include files.",
         "points": 50,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 18,
@@ -328,21 +328,21 @@ LEVELS = [
         "check_command": True,
         "explanation": "Use wildcards: * (any characters) and ? (single character). /s searches subdirectories.",
         "points": 50,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 19,
         "title": "Pipe Commands",
         "description": "Chain commands together.",
-        "challenge": "List files and count them: dir | find /c \".\"",
+        "challenge": 'List files and count them: dir | find /c "."',
         "hint": "command1 | command2",
-        "solution": "dir | find /c \".\"",
+        "solution": 'dir | find /c "."',
         "expected_output": None,
         "shell": "cmd",
         "check_command": True,
         "explanation": "Pipes (|) send output of one command to another. Very powerful!",
         "points": 55,
-        "category": "basics"
+        "category": "basics",
     },
     {
         "id": 20,
@@ -356,9 +356,8 @@ LEVELS = [
         "check_command": True,
         "explanation": "Environment variables store system info. Use %VAR% in CMD, $env:VAR in PowerShell.",
         "points": 55,
-        "category": "basics"
+        "category": "basics",
     },
-
     # === INTERMEDIATE TIER (21-50): Batch & PowerShell Intro ===
     {
         "id": 21,
@@ -371,7 +370,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Write-Host outputs text in PowerShell. Write-Output is for pipeline output.",
         "points": 60,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 22,
@@ -385,7 +384,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-Location shows current path. pwd is an alias. gl is the shortest alias!",
         "points": 65,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 23,
@@ -399,7 +398,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-ChildItem lists items. Aliases: ls, dir, gci. Returns objects, not text!",
         "points": 70,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 24,
@@ -412,7 +411,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Variables start with $. PowerShell is strongly typed but flexible.",
         "points": 75,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 25,
@@ -426,7 +425,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "PowerShell pipeline passes objects, not text. Much more powerful!",
         "points": 80,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 26,
@@ -440,7 +439,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-Service shows Windows services. Use -Name to filter specific services.",
         "points": 85,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 27,
@@ -454,7 +453,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Where-Object filters objects. $_ is current object. Alias: where or ?",
         "points": 90,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 28,
@@ -468,7 +467,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Select-Object chooses properties. Great for formatting output!",
         "points": 95,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 29,
@@ -482,7 +481,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Measure-Object counts, sums, averages. Essential for statistics!",
         "points": 100,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 30,
@@ -496,7 +495,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Sort-Object orders by properties. Use -Descending for reverse order.",
         "points": 110,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 31,
@@ -510,7 +509,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-Member reveals object structure. Essential for learning cmdlets!",
         "points": 120,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 32,
@@ -524,7 +523,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Format-Table creates tabular output. Use -AutoSize for best fit.",
         "points": 125,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 33,
@@ -537,7 +536,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "if tests conditions. -gt greater, -lt less, -eq equals, -ne not equals.",
         "points": 130,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 34,
@@ -550,7 +549,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "ForEach-Object iterates. 1..3 creates range. $_ is current item.",
         "points": 135,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 35,
@@ -563,7 +562,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Arrays use @(). Index from 0. Use .Count property for length.",
         "points": 140,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 36,
@@ -576,7 +575,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Hashtables are key-value pairs. Access with .Key or ['Key'].",
         "points": 145,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 37,
@@ -590,7 +589,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-Content reads files. Returns array of lines. Alias: gc, type, cat.",
         "points": 150,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 38,
@@ -604,7 +603,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Set-Content writes to files. Add-Content appends. Out-File also works.",
         "points": 155,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 39,
@@ -618,7 +617,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Test-Path checks existence. Returns boolean. Essential for validation!",
         "points": 160,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 40,
@@ -632,7 +631,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "New-Item creates files and folders. Very versatile cmdlet!",
         "points": 165,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 41,
@@ -646,7 +645,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Remove-Item deletes files/folders. Use -Recurse for directories, -Force to skip prompts.",
         "points": 170,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 42,
@@ -660,7 +659,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Copy-Item copies files/folders. Use -Recurse for directories.",
         "points": 175,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 43,
@@ -674,7 +673,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Move-Item moves or renames. Same item, different name = rename!",
         "points": 180,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 44,
@@ -688,7 +687,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-Date gets current date/time. Use -Format for custom formatting!",
         "points": 185,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 45,
@@ -701,7 +700,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Start-Process starts applications. Use -Wait to wait for completion.",
         "points": 190,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 46,
@@ -714,7 +713,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Stop-Process terminates processes. Use -Force for stubborn processes.",
         "points": 195,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 47,
@@ -728,7 +727,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-Command finds cmdlets. Essential for discovery!",
         "points": 200,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 48,
@@ -742,7 +741,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-Help shows documentation. Use -Examples for examples, -Full for complete help.",
         "points": 205,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 49,
@@ -755,7 +754,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Select-String is like grep. Searches for patterns in files.",
         "points": 210,
-        "category": "powershell"
+        "category": "powershell",
     },
     {
         "id": 50,
@@ -768,9 +767,8 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Export-Csv saves pipeline output to CSV. Use Import-Csv to read back!",
         "points": 215,
-        "category": "powershell"
+        "category": "powershell",
     },
-
     # === ADVANCED TIER (51-75): Advanced PowerShell & Administration ===
     {
         "id": 51,
@@ -783,7 +781,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Functions encapsulate code. Use Verb-Noun naming convention!",
         "points": 220,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 52,
@@ -796,7 +794,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Parameters make functions flexible. Use param() block for advanced parameters!",
         "points": 225,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 53,
@@ -809,7 +807,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "try-catch handles errors gracefully. Essential for robust scripts!",
         "points": 230,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 54,
@@ -822,7 +820,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "$Error array holds all errors. $Error[0] is most recent.",
         "points": 235,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 55,
@@ -836,7 +834,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ExecutionPolicy controls script running. RemoteSigned is common for development.",
         "points": 240,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 56,
@@ -849,7 +847,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Modules extend PowerShell. Use Get-Module to list loaded modules.",
         "points": 245,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 57,
@@ -862,7 +860,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "PowerShell treats registry like filesystem. HKLM: and HKCU: are drives!",
         "points": 250,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 58,
@@ -876,7 +874,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "WMI provides system information. Get-CimInstance is modern replacement.",
         "points": 255,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 59,
@@ -890,7 +888,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-CimInstance is faster and better than Get-WmiObject. Use it!",
         "points": 260,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 60,
@@ -904,7 +902,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-EventLog reads Windows event logs. Essential for troubleshooting!",
         "points": 265,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 61,
@@ -917,7 +915,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Get-ScheduledTask manages scheduled tasks. Windows task automation!",
         "points": 270,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 62,
@@ -931,7 +929,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-NetAdapter manages network interfaces. Part of NetAdapter module.",
         "points": 275,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 63,
@@ -945,7 +943,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Get-NetIPAddress shows IP addresses. PowerShell way of ipconfig!",
         "points": 280,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 64,
@@ -958,7 +956,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Get-NetFirewallRule manages Windows Firewall. Powerful automation!",
         "points": 285,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 65,
@@ -972,7 +970,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Measure-Command times execution. Essential for optimization!",
         "points": 290,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 66,
@@ -985,7 +983,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Start-Job runs commands in background. Use Get-Job and Receive-Job!",
         "points": 295,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 67,
@@ -998,7 +996,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Invoke-WebRequest makes HTTP requests. wget/curl for PowerShell!",
         "points": 300,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 68,
@@ -1012,7 +1010,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "ConvertTo-Json serializes objects. ConvertFrom-Json deserializes!",
         "points": 305,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 69,
@@ -1025,7 +1023,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "[CmdletBinding()] adds -Verbose, -Debug, etc. Professional functions!",
         "points": 310,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 70,
@@ -1038,7 +1036,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Validation attributes ensure parameters meet requirements. Many types available!",
         "points": 315,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 71,
@@ -1051,7 +1049,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Splatting (@params) passes hashtable as parameters. Cleaner code!",
         "points": 320,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 72,
@@ -1064,7 +1062,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "PowerShell Remoting uses WinRM. Powerful remote management!",
         "points": 325,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 73,
@@ -1077,7 +1075,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "ScriptBlocks are code objects. Use & to execute. Very powerful!",
         "points": 330,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 74,
@@ -1090,7 +1088,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Double quotes expand variables. Single quotes don't. Use $() for expressions!",
         "points": 335,
-        "category": "advanced"
+        "category": "advanced",
     },
     {
         "id": 75,
@@ -1103,9 +1101,8 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "-match uses regex. $Matches contains matches. -like uses wildcards.",
         "points": 340,
-        "category": "advanced"
+        "category": "advanced",
     },
-
     # === EXPERT TIER (76-100): Professional Automation ===
     {
         "id": 76,
@@ -1118,7 +1115,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "$PROFILE script runs at startup. Customize your environment!",
         "points": 345,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 77,
@@ -1132,7 +1129,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "PSCustomObject creates structured data. Essential for output!",
         "points": 350,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 78,
@@ -1146,7 +1143,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Group-Object groups by properties. Great for analysis!",
         "points": 355,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 79,
@@ -1159,7 +1156,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Compare-Object finds differences. Essential for validation!",
         "points": 360,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 80,
@@ -1173,7 +1170,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Calculated properties add computed values. Very powerful!",
         "points": 365,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 81,
@@ -1187,7 +1184,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Write-Progress shows progress bars. Professional scripts!",
         "points": 370,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 82,
@@ -1201,7 +1198,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Logging is essential for production scripts. Always log important actions!",
         "points": 375,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 83,
@@ -1214,7 +1211,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "begin/process/end blocks handle pipeline input. Advanced functions!",
         "points": 380,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 84,
@@ -1227,7 +1224,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Get-Credential prompts for credentials securely. Never hardcode passwords!",
         "points": 385,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 85,
@@ -1240,7 +1237,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "SecureString encrypts passwords in memory. Security best practice!",
         "points": 390,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 86,
@@ -1253,7 +1250,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Comment-based help makes functions professional. Use .SYNOPSIS, .DESCRIPTION, etc!",
         "points": 395,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 87,
@@ -1266,7 +1263,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Regex captures with (). $Matches contains captured groups. Powerful!",
         "points": 400,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 88,
@@ -1279,7 +1276,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "DSC ensures systems stay configured. Infrastructure as code!",
         "points": 405,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 89,
@@ -1292,7 +1289,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "PowerShell 5+ supports classes. Full OOP capabilities!",
         "points": 410,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 90,
@@ -1305,7 +1302,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Runspaces provide real parallelism. Much faster than jobs!",
         "points": 415,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 91,
@@ -1318,7 +1315,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "$ErrorActionPreference controls error behavior globally. Stop makes errors terminating!",
         "points": 420,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 92,
@@ -1332,7 +1329,7 @@ LEVELS = [
         "check_command": True,
         "explanation": "Write-Verbose for debugging output. Controlled by -Verbose parameter!",
         "points": 425,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 93,
@@ -1345,7 +1342,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Module manifests (.psd1) describe modules. Professional packaging!",
         "points": 430,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 94,
@@ -1358,7 +1355,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Pester is PowerShell testing framework. Professional development!",
         "points": 435,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 95,
@@ -1371,7 +1368,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Best practices: approved verbs (Get-Verb), Verb-Noun, comments, error handling!",
         "points": 440,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 96,
@@ -1384,7 +1381,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Use .NET collections, avoid array +=, filter left, select properties early!",
         "points": 445,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 97,
@@ -1397,7 +1394,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "PowerShell Gallery is module repository. Install-Module to get, Publish-Module to share!",
         "points": 450,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 98,
@@ -1410,7 +1407,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "PowerShell 7+ runs everywhere! Open-source and cross-platform!",
         "points": 455,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 99,
@@ -1423,7 +1420,7 @@ LEVELS = [
         "shell": "powershell",
         "explanation": "Az module automates Azure. Cloud automation with PowerShell!",
         "points": 460,
-        "category": "expert"
+        "category": "expert",
     },
     {
         "id": 100,
@@ -1453,7 +1450,7 @@ Write-Host 'Function created!'""",
         "check_command": True,
         "explanation": "You've mastered PowerShell! Parameters, validation, error handling, logging, CIM queries, CSV export. You're a Windows Grandmaster! 🏆",
         "points": 500,
-        "category": "final"
+        "category": "final",
     },
 ]
 
@@ -1494,7 +1491,7 @@ class PlayerProgress:
 def save_progress(progress: PlayerProgress):
     """Save player progress to file."""
     try:
-        with open(SAVE_FILE, 'w') as f:
+        with open(SAVE_FILE, "w") as f:
             json.dump(progress.to_dict(), f, indent=2)
     except Exception as e:
         console.print(f"[{COLORS['error']}]Error saving progress: {e}[/]")
@@ -1548,9 +1545,9 @@ def show_stats(progress: PlayerProgress):
     """Display player statistics."""
     rank_name, rank_desc = get_rank(progress.current_level)
 
-    table = Table(title="Your Stats", box=box.DOUBLE_EDGE, border_style=COLORS['primary'])
-    table.add_column("Stat", style=COLORS['secondary'], no_wrap=True)
-    table.add_column("Value", style=COLORS['windows'])
+    table = Table(title="Your Stats", box=box.DOUBLE_EDGE, border_style=COLORS["primary"])
+    table.add_column("Stat", style=COLORS["secondary"], no_wrap=True)
+    table.add_column("Value", style=COLORS["windows"])
 
     table.add_row("Current Level", f"{progress.current_level}/100")
     table.add_row("Completed Levels", str(len(progress.completed_levels)))
@@ -1564,22 +1561,22 @@ def show_stats(progress: PlayerProgress):
 
 def show_level_info(level_data: dict):
     """Display information about a level."""
-    shell_name = "PowerShell" if level_data['shell'] == 'powershell' else "CMD"
+    shell_name = "PowerShell" if level_data["shell"] == "powershell" else "CMD"
     panel = Panel(
-        f"""[{COLORS['windows']}]LEVEL {level_data['id']}: {level_data['title'].upper()}[/]
+        f"""[{COLORS["windows"]}]LEVEL {level_data["id"]}: {level_data["title"].upper()}[/]
 
-[{COLORS['info']}]Shell:[/] [{COLORS['secondary']}]{shell_name}[/]
-[{COLORS['info']}]Category:[/] [{COLORS['secondary']}]{level_data['category'].upper()}[/]
-[{COLORS['info']}]Points:[/] [{COLORS['success']}]{level_data['points']}[/]
+[{COLORS["info"]}]Shell:[/] [{COLORS["secondary"]}]{shell_name}[/]
+[{COLORS["info"]}]Category:[/] [{COLORS["secondary"]}]{level_data["category"].upper()}[/]
+[{COLORS["info"]}]Points:[/] [{COLORS["success"]}]{level_data["points"]}[/]
 
-[{COLORS['warning']}]Description:[/]
-{level_data['description']}
+[{COLORS["warning"]}]Description:[/]
+{level_data["description"]}
 
-[{COLORS['warning']}]Challenge:[/]
-{level_data['challenge']}
+[{COLORS["warning"]}]Challenge:[/]
+{level_data["challenge"]}
 """,
-        border_style=COLORS['primary'],
-        box=box.DOUBLE
+        border_style=COLORS["primary"],
+        box=box.DOUBLE,
     )
     console.print(panel)
 
@@ -1612,23 +1609,17 @@ def execute_windows_command(command: str, shell: str, expected_output: str | Non
     Execute a Windows command and return success status and output.
     """
     try:
-        if shell == 'cmd':
+        if shell == "cmd":
             # Execute with CMD
-            result = subprocess.run(
-                ['cmd', '/c', command],
-                capture_output=True,
-                text=True,
-                timeout=10,
-                shell=False
-            )
+            result = subprocess.run(["cmd", "/c", command], capture_output=True, text=True, timeout=10, shell=False)
         else:  # powershell
             # Execute with PowerShell
             result = subprocess.run(
-                ['powershell', '-NoProfile', '-Command', command],
+                ["powershell", "-NoProfile", "-Command", command],
                 capture_output=True,
                 text=True,
                 timeout=10,
-                shell=False
+                shell=False,
             )
 
         output = result.stdout.strip()
@@ -1646,7 +1637,7 @@ def execute_windows_command(command: str, shell: str, expected_output: str | Non
     except subprocess.TimeoutExpired:
         return (False, "Command timed out (>10 seconds)")
     except FileNotFoundError:
-        if shell == 'powershell':
+        if shell == "powershell":
             return (False, "PowerShell not found. Make sure PowerShell is installed.")
         return (False, "CMD not available")
     except Exception as e:
@@ -1661,7 +1652,7 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
     show_level_info(level_data)
     console.print()
 
-    shell_prompt = "PS>" if level_data['shell'] == 'powershell' else "C:\\>"
+    shell_prompt = "PS>" if level_data["shell"] == "powershell" else "C:\\>"
 
     # Show hint option
     console.print(f"[{COLORS['info']}]💡 Type 'hint' for a hint, 'skip' to skip (no points), or enter your command:[/]")
@@ -1671,13 +1662,13 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
         try:
             user_input = Prompt.ask(f"[{COLORS['windows']}]{shell_prompt}")
 
-            if user_input.lower() == 'hint':
+            if user_input.lower() == "hint":
                 console.print(f"[{COLORS['warning']}]💡 Hint: {level_data['hint']}[/]")
                 continue
-            elif user_input.lower() == 'skip':
+            elif user_input.lower() == "skip":
                 console.print(f"[{COLORS['warning']}]⏭️  Skipping level (no points awarded)[/]")
                 return False
-            elif user_input.lower() == 'solution':
+            elif user_input.lower() == "solution":
                 console.print(f"[{COLORS['error']}]🚫 No cheating! Try using the hint instead.[/]")
                 continue
             elif not user_input.strip():
@@ -1691,7 +1682,12 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
 
     # Show what they entered
     console.print(f"\n[{COLORS['info']}]Your command:[/]")
-    syntax = Syntax(user_input, "powershell" if level_data['shell'] == 'powershell' else "batch", theme="monokai", line_numbers=False)
+    syntax = Syntax(
+        user_input,
+        "powershell" if level_data["shell"] == "powershell" else "batch",
+        theme="monokai",
+        line_numbers=False,
+    )
     console.print(syntax)
     console.print()
 
@@ -1699,7 +1695,7 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
     console.print(f"[{COLORS['warning']}]Executing command...[/]")
     time.sleep(0.5)
 
-    success, output = execute_windows_command(user_input, level_data['shell'], level_data.get('expected_output'))
+    success, output = execute_windows_command(user_input, level_data["shell"], level_data.get("expected_output"))
 
     if success:
         console.print(f"[{COLORS['success']}]✅ CORRECT! Level completed![/]")
@@ -1709,9 +1705,9 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
         console.print(f"[{COLORS['success']}]+{level_data['points']} points![/]")
 
         # Update progress
-        if level_data['id'] not in progress.completed_levels:
-            progress.completed_levels.append(level_data['id'])
-            progress.total_points += level_data['points']
+        if level_data["id"] not in progress.completed_levels:
+            progress.completed_levels.append(level_data["id"])
+            progress.total_points += level_data["points"]
 
         # Check for achievements
         check_achievements(progress)
@@ -1721,7 +1717,7 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
         console.print(f"[{COLORS['error']}]❌ Not quite right. Try again![/]")
         if output:
             console.print(f"[{COLORS['info']}]Output/Error:[/] {output[:200]}")
-        if level_data.get('expected_output'):
+        if level_data.get("expected_output"):
             console.print(f"[{COLORS['info']}]Expected:[/] {level_data['expected_output']}")
 
         if Confirm.ask(f"[{COLORS['warning']}]Try again?"):
@@ -1760,9 +1756,9 @@ def main_menu():
         rank_name, _ = get_rank(progress.current_level)
         console.print(f"\n[{COLORS['windows']}]Welcome back, {rank_name}![/]\n")
 
-        table = Table(box=box.ROUNDED, border_style=COLORS['secondary'])
-        table.add_column("Option", style=COLORS['primary'], no_wrap=True)
-        table.add_column("Description", style=COLORS['info'])
+        table = Table(box=box.ROUNDED, border_style=COLORS["secondary"])
+        table.add_column("Option", style=COLORS["primary"], no_wrap=True)
+        table.add_column("Description", style=COLORS["info"])
 
         table.add_row("1", "Continue Journey")
         table.add_row("2", "View Stats")
@@ -1792,7 +1788,9 @@ def main_menu():
                         else:
                             break
                     else:
-                        console.print(f"\n[{COLORS['windows']}]🎉 CONGRATULATIONS! You've completed ALL 100 levels! 🎉[/]")
+                        console.print(
+                            f"\n[{COLORS['windows']}]🎉 CONGRATULATIONS! You've completed ALL 100 levels! 🎉[/]"
+                        )
                         console.print(f"[{COLORS['success']}]You are now a WINDOWS GRANDMASTER! ⭐[/]")
                         console.print(f"[{COLORS['info']}]Total Points: {progress.total_points}[/]")
                         input("\nPress Enter to return to menu...")
@@ -1822,8 +1820,8 @@ def main_menu():
         elif choice == "4":
             console.clear()
             if progress.achievements:
-                table = Table(title="🏆 Your Achievements", box=box.DOUBLE_EDGE, border_style=COLORS['success'])
-                table.add_column("Achievement", style=COLORS['windows'])
+                table = Table(title="🏆 Your Achievements", box=box.DOUBLE_EDGE, border_style=COLORS["success"])
+                table.add_column("Achievement", style=COLORS["windows"])
                 for achievement in progress.achievements:
                     table.add_row(achievement)
                 console.print(table)
@@ -1848,8 +1846,10 @@ def main():
     """Main entry point."""
     try:
         # Check platform
-        if platform.system() != 'Windows':
-            console.print(f"[{COLORS['warning']}]Warning: This game is designed for Windows. Some commands may not work on {platform.system()}.[/]")
+        if platform.system() != "Windows":
+            console.print(
+                f"[{COLORS['warning']}]Warning: This game is designed for Windows. Some commands may not work on {platform.system()}.[/]"
+            )
             if not Confirm.ask("Continue anyway?"):
                 return
 
