@@ -114,6 +114,15 @@ def test_continue_failed_level_returns_to_menu_without_retry_prompt(mod, save_fi
     assert reloaded.current_level == 1
 
 
+def test_continue_confirmed_advances_to_next_level(mod, save_file, monkeypatch):
+    monkeypatch.setattr(mod, _exec_name(mod), lambda *a, **kw: (True, "ok"))
+    _prompts(monkeypatch, mod, "1", "some-command", "some-command", "6")
+    _confirms(monkeypatch, mod, True, False)
+    mod.main_menu()
+    reloaded = mod.load_progress()
+    assert reloaded.current_level == 3
+
+
 def test_continue_completing_final_level_shows_victory(mod, save_file, monkeypatch, capsys):
     save_file.write_text(
         '{"current_level": 100, "completed_levels": [], "total_points": 0, '

@@ -97,6 +97,12 @@ def test_get_rank_highest(mod):
     assert name == mod.RANKS[-1][1]
 
 
+def test_get_rank_below_lowest_threshold_falls_back_to_rank_zero(mod):
+    name, desc = mod.get_rank(-1)
+    assert name == mod.RANKS[0][1]
+    assert desc == mod.RANKS[0][2]
+
+
 def test_check_achievements_unlocks_at_threshold(mod):
     p = mod.PlayerProgress()
     p.completed_levels = list(range(1, 6))
