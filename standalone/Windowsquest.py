@@ -1700,7 +1700,8 @@ def play_level(level_data: dict, progress: PlayerProgress) -> bool:
     if success:
         console.print(f"[{COLORS['success']}]✅ CORRECT! Level completed![/]")
         if output and len(output) < 500:
-            console.print(f"[{COLORS['info']}]Output:[/] {output[:200]}...")
+            suffix = "..." if len(output) > 200 else ""
+            console.print(f"[{COLORS['info']}]Output:[/] {output[:200]}{suffix}")
         console.print(f"[{COLORS['info']}]{level_data['explanation']}[/]")
         console.print(f"[{COLORS['success']}]+{level_data['points']} points![/]")
 

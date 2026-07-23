@@ -115,6 +115,16 @@ def test_play_level_wrong_output_then_retry_succeeds(mod, level, exec_name, monk
     assert 1 in progress.completed_levels
 
 
+def test_windowsquest_short_output_has_no_misleading_ellipsis(monkeypatch, capsys):
+    _mock_exec(monkeypatch, Windowsquest, "execute_windows_command", (True, "hello"))
+    _answers(monkeypatch, Windowsquest, "echo hello")
+    progress = Windowsquest.PlayerProgress()
+    Windowsquest.play_level(WINDOWS_LEVEL, progress)
+    out = capsys.readouterr().out
+    assert "hello..." not in out
+    assert "hello" in out
+
+
 @pytest.mark.parametrize("mod,level,exec_name", CASES, ids=lambda x: getattr(x, "__name__", x))
 def test_play_level_interrupted(mod, level, exec_name, monkeypatch):
     def _raise(*a, **kw):
