@@ -18,8 +18,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install ruff>=0.4.0
+      - run: pip install -r requirements.txt -r requirements-dev.txt
       - run: ruff check .
+      - run: mypy games/ standalone/ securityquest/
 
   test:
     name: Test (Python ${{ matrix.python-version }})
