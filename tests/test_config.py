@@ -29,6 +29,5 @@ def test_all_games_have_100_levels():
 
 def test_game_names():
     names = [g["name"] for g in GAMES]
-    expected = ["CyberQuest", "BashQuest", "WindowsQuest", "CiscoQuest",
-                "CryptoQuest", "ReverseQuest", "WebHackQuest"]
+    expected = ["CyberQuest", "BashQuest", "WindowsQuest", "CiscoQuest", "CryptoQuest", "ReverseQuest", "WebHackQuest"]
     assert names == expected

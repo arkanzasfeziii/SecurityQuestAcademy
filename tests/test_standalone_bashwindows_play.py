@@ -9,15 +9,28 @@ import pytest
 from standalone import Bashquest, Windowsquest
 
 BASH_LEVEL = {
-    "id": 1, "title": "Echo", "category": "basics", "points": 10,
-    "description": "d", "challenge": "c", "hint": "echo hello",
-    "explanation": "e", "expected_output": "hello",
+    "id": 1,
+    "title": "Echo",
+    "category": "basics",
+    "points": 10,
+    "description": "d",
+    "challenge": "c",
+    "hint": "echo hello",
+    "explanation": "e",
+    "expected_output": "hello",
 }
 
 WINDOWS_LEVEL = {
-    "id": 1, "title": "Echo", "category": "basics", "points": 10,
-    "description": "d", "challenge": "c", "hint": "echo hello",
-    "explanation": "e", "expected_output": "hello", "shell": "cmd",
+    "id": 1,
+    "title": "Echo",
+    "category": "basics",
+    "points": 10,
+    "description": "d",
+    "challenge": "c",
+    "hint": "echo hello",
+    "explanation": "e",
+    "expected_output": "hello",
+    "shell": "cmd",
 }
 
 CASES = [

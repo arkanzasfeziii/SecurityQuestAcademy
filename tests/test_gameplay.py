@@ -117,9 +117,15 @@ def test_play_python_level_solution_request_does_not_submit(monkeypatch):
 # ---------------------------------------------------------------------------
 
 ASSERT_LEVEL = {
-    "id": 4, "title": "Add", "category": "basics", "points": 10,
-    "description": "d", "challenge": "c", "hint": "def add(a, b): return a + b",
-    "explanation": "e", "test_code": "assert add(2, 2) == 4",
+    "id": 4,
+    "title": "Add",
+    "category": "basics",
+    "points": 10,
+    "description": "d",
+    "challenge": "c",
+    "hint": "def add(a, b): return a + b",
+    "explanation": "e",
+    "test_code": "assert add(2, 2) == 4",
 }
 
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """SecurityQuestAcademy — Unified launcher for all security training games."""
+
 import sys
 import time
 from pathlib import Path
@@ -111,11 +112,11 @@ def show_academy_banner() -> None:
 
 def show_academy_boot() -> None:
     steps = [
-        ("Loading security modules...",   0.12),
-        ("Initializing game engines...",  0.10),
+        ("Loading security modules...", 0.12),
+        ("Initializing game engines...", 0.10),
         ("Calibrating challenge levels...", 0.10),
         ("Establishing secure channel...", 0.12),
-        ("Academy ready!",                0.08),
+        ("Academy ready!", 0.08),
     ]
     for msg, delay in steps:
         con.print(f"  [bright_cyan]>[/bright_cyan] {msg}")
@@ -131,11 +132,11 @@ def show_game_menu() -> None:
         header_style="bold bright_cyan",
         show_lines=True,
     )
-    table.add_column("#",        style="bold white",   width=4,  justify="center")
-    table.add_column("Game",     style="bold",         width=16)
-    table.add_column("Description",                    width=34)
-    table.add_column("Levels",   style="cyan",         width=8,  justify="center")
-    table.add_column("Topics",   style="dim",          width=38)
+    table.add_column("#", style="bold white", width=4, justify="center")
+    table.add_column("Game", style="bold", width=16)
+    table.add_column("Description", width=34)
+    table.add_column("Levels", style="cyan", width=8, justify="center")
+    table.add_column("Topics", style="dim", width=38)
 
     for g in GAMES:
         table.add_row(
@@ -157,6 +158,7 @@ def launch_game(game: dict) -> None:
     time.sleep(0.3)
     try:
         import importlib
+
         mod = importlib.import_module(game["module"])
         mod.run()
     except ImportError as e:

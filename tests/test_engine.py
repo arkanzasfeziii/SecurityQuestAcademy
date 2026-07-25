@@ -19,8 +19,7 @@ def test_player_progress_to_dict():
 
 
 def test_player_progress_from_dict():
-    data = {"current_level": 10, "total_points": 500,
-            "completed_levels": [1, 2, 3], "achievements": ["First Blood"]}
+    data = {"current_level": 10, "total_points": 500, "completed_levels": [1, 2, 3], "achievements": ["First Blood"]}
     p = PlayerProgress.from_dict(data)
     assert p.current_level == 10
     assert p.total_points == 500
@@ -34,15 +33,13 @@ def test_player_progress_from_empty_dict():
 
 
 def test_get_rank():
-    ranks = [(1, "Noob", "Just started"), (10, "Hacker", "Getting there"),
-             (50, "Elite", "Almost done")]
+    ranks = [(1, "Noob", "Just started"), (10, "Hacker", "Getting there"), (50, "Elite", "Almost done")]
     name, desc = get_rank(15, ranks)
     assert name == "Hacker"
 
 
 def test_get_rank_highest():
-    ranks = [(1, "Noob", "Just started"), (10, "Hacker", "Getting there"),
-             (50, "Elite", "Almost done")]
+    ranks = [(1, "Noob", "Just started"), (10, "Hacker", "Getting there"), (50, "Elite", "Almost done")]
     name, desc = get_rank(99, ranks)
     assert name == "Elite"
 
