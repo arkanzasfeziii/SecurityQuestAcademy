@@ -20,6 +20,7 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt -r requirements-dev.txt
       - run: ruff check .
+      - run: ruff format --check .
       - run: mypy games/ standalone/ securityquest/
 
   test:
