@@ -72,9 +72,9 @@ def show_menu() -> None:
         table.add_row(
             str(g["id"]),
             f"[{g['color']}]{g['name']}[/{g['color']}]",
-            g["description"],
-            g["levels"],
-            g["topics"],
+            str(g["description"]),
+            str(g["levels"]),
+            str(g["topics"]),
         )
     console.print(table)
     console.print("\n  [dim]Enter the number of the quest, or [bold]Q[/bold] to quit.[/dim]\n")
