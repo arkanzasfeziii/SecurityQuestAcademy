@@ -49,7 +49,10 @@ ignore = ["E501", "B904"]
 
 [tool.ruff.lint.per-file-ignores]
 # Trailing whitespace inside embedded PowerShell solution scripts, not real code.
-"standalone/Windowsquest.py" = ["W293"]
+# N999: capitalized to match the game names; renaming would touch every import site.
+"standalone/Windowsquest.py" = ["W293", "N999"]
+"standalone/Bashquest.py" = ["N999"]
+"standalone/Cyberquest.py" = ["N999"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
