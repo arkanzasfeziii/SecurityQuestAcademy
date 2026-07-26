@@ -1,0 +1,1 @@
+# SecurityQuestAcademy — standalone package

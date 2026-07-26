@@ -36,6 +36,9 @@ Issues = "https://github.com/arkanzasfeziii/SecurityQuestAcademy/issues"
 [project.scripts]
 securityquest = "securityquest.cli:main"
 
+[tool.setuptools.packages.find]
+include = ["games*", "securityquest*", "standalone*"]
+
 [tool.ruff]
 target-version = "py310"
 line-length = 120
