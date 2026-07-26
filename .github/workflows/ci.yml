@@ -48,3 +48,11 @@ jobs:
       - run: pip install .
       - run: python -c "from securityquest.cli import main; from games import ciscoquest, cryptoquest, reversequest, webhackquest; from standalone import Cyberquest, Bashquest, Windowsquest; print('package imports OK')"
       - run: securityquest < /dev/null
+
+  docker:
+    name: Docker build & run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: docker build -t securityquest-academy .
+      - run: docker run --rm securityquest-academy < /dev/null
