@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "securityquest-academy"
-version = "2.0.0"
+dynamic = ["version"]
 description = "Interactive cybersecurity training platform — 700 hands-on challenges across 7 domains"
 readme = "README.md"
 license = "MIT"
@@ -37,6 +37,9 @@ securityquest = "securityquest.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["games*", "securityquest*", "standalone*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "securityquest.__version__"}
 
 [tool.ruff]
 target-version = "py310"
