@@ -20,7 +20,7 @@ test: ## Run tests
 	pytest tests/ -v
 
 test-cov: ## Tests with coverage
-	pytest tests/ --cov=securityquest --cov=games --cov-report=term-missing
+	pytest tests/ --cov=securityquest --cov=games --cov=standalone --cov-report=term-missing
 
 play: ## Launch the academy
 	python -m securityquest
