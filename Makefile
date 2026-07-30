@@ -1,4 +1,4 @@
-.PHONY: help install install-dev lint format test test-cov audit clean play
+.PHONY: help install install-dev lint format test test-cov audit build docker clean play
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
@@ -27,6 +27,13 @@ test-cov: ## Tests with coverage
 audit: ## Scan dependencies for known vulnerabilities
 	pip-audit -r requirements.txt
 	pip-audit -r requirements-dev.txt
+
+build: ## Install the package itself (verifies packaging, matches CI)
+	pip install .
+
+docker: ## Build and run the Docker image
+	docker build -t securityquest-academy .
+	docker run --rm -it securityquest-academy
 
 play: ## Launch the academy
 	python -m securityquest
