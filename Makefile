@@ -31,6 +31,6 @@ audit: ## Scan dependencies for known vulnerabilities
 play: ## Launch the academy
 	python -m securityquest
 
-clean: ## Remove caches
-	rm -rf __pycache__ .pytest_cache .mypy_cache .ruff_cache htmlcov .coverage
+clean: ## Remove caches and packaging artifacts
+	rm -rf __pycache__ .pytest_cache .mypy_cache .ruff_cache htmlcov .coverage build dist *.egg-info
 	find . -type d -name __pycache__ -exec rm -rf {} +
