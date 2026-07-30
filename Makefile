@@ -1,4 +1,4 @@
-.PHONY: help install install-dev lint format test test-cov clean play
+.PHONY: help install install-dev lint format test test-cov audit clean play
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
@@ -10,8 +10,10 @@ install: ## Install dependencies
 install-dev: install ## Install dev dependencies
 	pip install -r requirements-dev.txt
 
-lint: ## Run linter
+lint: ## Run linter, format check, and type check (matches CI)
 	ruff check .
+	ruff format --check .
+	mypy games/ standalone/ securityquest/
 
 format: ## Format code
 	ruff format .
@@ -21,6 +23,10 @@ test: ## Run tests
 
 test-cov: ## Tests with coverage
 	pytest tests/ --cov=securityquest --cov=games --cov=standalone --cov-report=term-missing
+
+audit: ## Scan dependencies for known vulnerabilities
+	pip-audit -r requirements.txt
+	pip-audit -r requirements-dev.txt
 
 play: ## Launch the academy
 	python -m securityquest
