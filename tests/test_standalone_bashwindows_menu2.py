@@ -187,3 +187,27 @@ def test_main_unexpected_error_is_caught(mod, monkeypatch, capsys):
     mod.main()
     out = capsys.readouterr().out
     assert "boom" in out
+
+
+def test_windowsquest_main_warns_and_stops_when_declined_on_non_windows(monkeypatch, capsys):
+    monkeypatch.setattr(Windowsquest.platform, "system", lambda: "Linux")
+    monkeypatch.setattr(Windowsquest.Confirm, "ask", lambda *a, **kw: False)
+    calls = []
+    monkeypatch.setattr(Windowsquest, "simulate_windows_boot", lambda: calls.append("boot"))
+    monkeypatch.setattr(Windowsquest, "main_menu", lambda: calls.append("menu"))
+    Windowsquest.main()
+    out = capsys.readouterr().out
+    assert "designed for Windows" in out
+    assert calls == []
+
+
+def test_windowsquest_main_warns_and_continues_when_confirmed_on_non_windows(monkeypatch, capsys):
+    monkeypatch.setattr(Windowsquest.platform, "system", lambda: "Linux")
+    monkeypatch.setattr(Windowsquest.Confirm, "ask", lambda *a, **kw: True)
+    calls = []
+    monkeypatch.setattr(Windowsquest, "simulate_windows_boot", lambda: calls.append("boot"))
+    monkeypatch.setattr(Windowsquest, "main_menu", lambda: calls.append("menu"))
+    Windowsquest.main()
+    out = capsys.readouterr().out
+    assert "designed for Windows" in out
+    assert calls == ["boot", "menu"]
