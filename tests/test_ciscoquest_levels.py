@@ -10,8 +10,16 @@ from games import ciscoquest
 from games.base import match_cisco_command
 
 REQUIRED_KEYS = {
-    "id", "title", "description", "challenge", "hint",
-    "solution", "accepted", "explanation", "points", "category",
+    "id",
+    "title",
+    "description",
+    "challenge",
+    "hint",
+    "solution",
+    "accepted",
+    "explanation",
+    "points",
+    "category",
 }
 
 # Words play_python_assert_level / play_cisco_level treat as control
