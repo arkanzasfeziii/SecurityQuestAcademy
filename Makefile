@@ -24,9 +24,10 @@ test: ## Run tests
 test-cov: ## Tests with coverage
 	pytest tests/ --cov=securityquest --cov=games --cov=standalone --cov-report=term-missing
 
-audit: ## Scan dependencies for known vulnerabilities
+audit: ## Scan dependencies and source for known vulnerabilities
 	pip-audit -r requirements.txt
 	pip-audit -r requirements-dev.txt
+	bandit -r games/ standalone/ securityquest/ -ll
 
 build: ## Install the package itself (verifies packaging, matches CI)
 	pip install .

@@ -68,3 +68,4 @@ jobs:
       - run: pip install -r requirements-dev.txt
       - run: pip-audit -r requirements.txt || true
       - run: pip-audit -r requirements-dev.txt || true
+      - run: bandit -r games/ standalone/ securityquest/ -ll || true
