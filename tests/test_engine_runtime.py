@@ -197,12 +197,14 @@ def test_load_progress_missing_file(tmp_path):
     assert restored.completed_levels == []
 
 
-def test_load_progress_corrupt_file(tmp_path):
+def test_load_progress_corrupt_file(tmp_path, capsys):
     save_file = tmp_path / "progress.json"
     save_file.write_text("{ this is not valid json", encoding="utf-8")
     restored = load_progress(save_file)
     assert restored.current_level == 1
     assert restored.total_points == 0
+    out = capsys.readouterr().out
+    assert "Could not load save file" in out
 
 
 def test_save_progress_writes_valid_json(tmp_path):

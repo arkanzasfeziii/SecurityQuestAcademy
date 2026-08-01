@@ -89,8 +89,8 @@ def load_progress(save_file: Path) -> PlayerProgress:
         try:
             with open(save_file) as f:
                 return PlayerProgress.from_dict(json.load(f))
-        except Exception:
-            pass
+        except Exception as e:
+            console.print(f"[yellow]Could not load save file: {e}[/]")
     return PlayerProgress()
 
 
