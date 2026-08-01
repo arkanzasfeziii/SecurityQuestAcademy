@@ -34,6 +34,11 @@ ALL_LEVELS = [
     for lvl in mod.LEVELS
 ]
 
+# Words play_python_assert_level treats as control commands rather than
+# submitted code — a solution line that happens to equal one of these could
+# never actually be typed and accepted as an answer.
+CONTROL_WORDS = {"done", "hint", "skip", "solution"}
+
 
 @pytest.mark.parametrize("quest_name,mod", QUESTS, ids=[q[0] for q in QUESTS])
 def test_exactly_100_levels(quest_name, mod):
@@ -63,3 +68,12 @@ def test_every_level_awards_positive_points(quest_name, mod):
 def test_documented_solution_passes_its_own_test_code(quest_name, level):
     ok, error = eval_python_assertions(level["solution"], level["test_code"])
     assert ok, f"{quest_name} level {level['id']} ('{level['title']}'): {error}"
+
+
+@pytest.mark.parametrize("quest_name,level", ALL_LEVELS)
+def test_no_solution_line_collides_with_a_control_word(quest_name, level):
+    for line in level["solution"].split("\n"):
+        assert line.strip().lower() not in CONTROL_WORDS, (
+            f"{quest_name} level {level['id']} ('{level['title']}'): line {line!r} "
+            f"would be swallowed as a menu command instead of submitted code"
+        )

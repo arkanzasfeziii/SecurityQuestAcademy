@@ -25,6 +25,11 @@ REQUIRED_KEYS = {
 # output can still be compared deterministically against test_code's output.
 CANNED_STDIN = {5: "Agent"}
 
+# Words play_level() treats as control commands rather than submitted code —
+# a solution line that happens to equal one of these could never actually be
+# typed and accepted as an answer.
+CONTROL_WORDS = {"done", "hint", "skip", "solution"}
+
 
 def _run(code, stdin_answer=None):
     buf = io.StringIO()
@@ -70,3 +75,12 @@ def test_documented_solution_matches_expected_output(level):
     assert actual == expected, (
         f"level {level['id']} ('{level['title']}'): solution output {actual!r} does not match expected {expected!r}"
     )
+
+
+@pytest.mark.parametrize("level", Cyberquest.LEVELS, ids=lambda lvl: f"level-{lvl['id']}")
+def test_no_solution_line_collides_with_a_control_word(level):
+    for line in level["solution"].split("\n"):
+        assert line.strip().lower() not in CONTROL_WORDS, (
+            f"level {level['id']} ('{level['title']}'): line {line!r} "
+            f"would be swallowed as a menu command instead of submitted code"
+        )

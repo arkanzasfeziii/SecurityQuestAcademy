@@ -33,6 +33,12 @@ REQUIRED_KEYS_BASH = {
 }
 REQUIRED_KEYS_WINDOWS = REQUIRED_KEYS_BASH | {"shell"}
 
+# Words play_level() treats as control commands rather than a submitted
+# answer — a solution that's exactly one of these could never actually be
+# typed and accepted (these levels take a single-line command, unlike the
+# Python quests' multi-line submissions).
+CONTROL_WORDS = {"done", "hint", "skip", "solution"}
+
 
 def _bash_usable() -> bool:
     if shutil.which("bash") is None:
@@ -65,6 +71,10 @@ def test_exactly_100_levels_with_required_fields(mod, keys):
         missing = keys - lvl.keys()
         assert not missing, f"level {lvl['id']} missing {missing}"
         assert lvl["points"] > 0
+        assert lvl["solution"].strip().lower() not in CONTROL_WORDS, (
+            f"level {lvl['id']} ('{lvl['title']}'): solution {lvl['solution']!r} "
+            f"would be swallowed as a menu command instead of a submitted answer"
+        )
 
 
 # ---------------------------------------------------------------------------
