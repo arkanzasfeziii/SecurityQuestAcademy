@@ -1427,7 +1427,7 @@ def show_level_info(level_data: dict):
     panel = Panel(
         f"""[{COLORS["hacker"]}]LEVEL {level_data["id"]}: {level_data["title"].upper()}[/]
 
-[{COLORS["info"]}]Category:[/] [{COLORS["secondary"]}]{level_data["category"].upper()}[/]
+[{COLORS["info"]}]Category:[/] [{COLORS["secondary"]}]{level_data.get("category", "").upper()}[/]
 [{COLORS["info"]}]Points:[/] [{COLORS["success"]}]{level_data["points"]}[/]
 
 [{COLORS["warning"]}]Description:[/]

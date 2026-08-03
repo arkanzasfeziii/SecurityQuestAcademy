@@ -1566,7 +1566,7 @@ def show_level_info(level_data: dict):
         f"""[{COLORS["windows"]}]LEVEL {level_data["id"]}: {level_data["title"].upper()}[/]
 
 [{COLORS["info"]}]Shell:[/] [{COLORS["secondary"]}]{shell_name}[/]
-[{COLORS["info"]}]Category:[/] [{COLORS["secondary"]}]{level_data["category"].upper()}[/]
+[{COLORS["info"]}]Category:[/] [{COLORS["secondary"]}]{level_data.get("category", "").upper()}[/]
 [{COLORS["info"]}]Points:[/] [{COLORS["success"]}]{level_data["points"]}[/]
 
 [{COLORS["warning"]}]Description:[/]
