@@ -22,7 +22,7 @@ test: ## Run tests
 	pytest tests/ -v
 
 test-cov: ## Tests with coverage
-	pytest tests/ --cov=securityquest --cov=games --cov=standalone --cov-report=term-missing
+	pytest tests/ --cov=securityquest --cov=games --cov=standalone --cov-report=term-missing --cov-fail-under=90
 
 audit: ## Scan dependencies and source for known vulnerabilities
 	pip-audit -r requirements.txt
