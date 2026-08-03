@@ -115,10 +115,12 @@ def test_jump_to_out_of_range_level_shows_error(tmp_path, monkeypatch, capsys):
     assert "Out of range" in out
 
 
-def test_jump_with_non_numeric_input_is_ignored(tmp_path, monkeypatch):
+def test_jump_with_non_numeric_input_shows_error(tmp_path, monkeypatch, capsys):
     save_file = tmp_path / "save.json"
     _prompts(monkeypatch, "3", "not-a-number", "6")
     _run(save_file)
+    out = capsys.readouterr().out
+    assert "Invalid level number" in out
     assert not save_file.exists()
 
 

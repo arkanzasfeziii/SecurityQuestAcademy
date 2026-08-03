@@ -484,7 +484,8 @@ def run_game(
                     console.print(f"[{colors['error']}]Out of range.[/]")
                     time.sleep(1.5)
             except ValueError:
-                pass
+                console.print(f"[{colors['error']}]Invalid level number.[/]")
+                time.sleep(1.5)
 
         elif choice == "4":
             console.clear()
