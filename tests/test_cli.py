@@ -121,3 +121,15 @@ def test_main_launches_selected_game_then_quits(monkeypatch, capsys):
     monkeypatch.setattr(cli, "launch_game", lambda game: launched.append(game["name"]))
     cli.main()
     assert launched == ["CyberQuest"]
+
+
+def test_main_ctrl_c_during_launch_game_exits_gracefully(monkeypatch, capsys):
+    monkeypatch.setattr("builtins.input", lambda *_: "1")
+
+    def _boom(game):
+        raise KeyboardInterrupt
+
+    monkeypatch.setattr(cli, "launch_game", _boom)
+    cli.main()
+    out = capsys.readouterr().out
+    assert "Goodbye" in out

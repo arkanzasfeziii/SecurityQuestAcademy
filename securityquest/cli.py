@@ -109,7 +109,11 @@ def main() -> None:
             break
 
         if choice.isdigit() and 1 <= int(choice) <= len(GAMES):
-            launch_game(GAMES[int(choice) - 1])
+            try:
+                launch_game(GAMES[int(choice) - 1])
+            except (KeyboardInterrupt, EOFError):
+                _print("\n  Goodbye, hacker. Keep learning!\n")
+                break
             _print("\n  Returned to SecurityQuestAcademy main menu.\n")
         else:
             _print(f"  Invalid choice: {choice!r}. Enter 1-{len(GAMES)} or Q.\n")
