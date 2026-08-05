@@ -1432,7 +1432,7 @@ def show_stats(progress: PlayerProgress):
 
     table.add_row("Current Level", f"{progress.current_level}/100")
     table.add_row("Completed Levels", str(len(progress.completed_levels)))
-    table.add_row("Total Points", str(progress.total_points))
+    table.add_row("Total Points", f"{progress.total_points:,}")
     table.add_row("Current Rank", rank_name)
     table.add_row("Rank Description", rank_desc)
     table.add_row("Achievements", str(len(progress.achievements)))
